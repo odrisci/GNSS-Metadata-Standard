@@ -32,6 +32,8 @@ protected:
    virtual bool Open() = 0;
 
 public:
+   
+   virtual ~SampleSink(){};
   
    virtual void AddSample( int8_t  x ) = 0;
    virtual void AddSample( int16_t x ) = 0;

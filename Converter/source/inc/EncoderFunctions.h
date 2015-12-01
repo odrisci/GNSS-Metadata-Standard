@@ -56,7 +56,7 @@ namespace SampleEncoderFunctions
       chunk_t bits = ( pChunk[chunkIndex] >> shift );
       
       //retrieve the sign of the data
-      bool sign =  (pChunk[chunkIndex] >> shift+quantization-1) & 0x1 ;
+      bool sign =  ( pChunk[chunkIndex] >> (shift+quantization-1) ) & 0x1 ;
 
       //make a mask for the magnitude data (ones for the upper bits)
       chunk_t signExtension = std::numeric_limits<chunk_t>::max() << quantization;
@@ -69,7 +69,7 @@ namespace SampleEncoderFunctions
    sample_base_t SignMagnitude( const chunk_t* pChunk, uint32_t chunkIndex, uint32_t shift, uint32_t quantization )
    {
       //retrieve the sign of the data
-      sample_base_t sign =  ( (pChunk[chunkIndex] >> shift+quantization-1) & 0x1 ? -1 : 1 );
+      sample_base_t sign =  ( (pChunk[chunkIndex] >> (shift+quantization-1) ) & 0x1 ? -1 : 1 );
 
       //make a mask for the magnitude data
       //set ot all ones (assume chunk_t is unsigned), then rightshift

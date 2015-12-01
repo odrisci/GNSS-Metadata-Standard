@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2013 for Windows Desktop
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestApp", "TestApp\TestApp.vcxproj", "{B0FF620B-AE0C-497B-9559-5E686D09D397}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C62DBEB4-2156-4A4A-8EB4-CAEC2686A0BE} = {C62DBEB4-2156-4A4A-8EB4-CAEC2686A0BE}
+		{ED4C41B7-5BAD-4F8B-8EC6-3EBBACC3C91D} = {ED4C41B7-5BAD-4F8B-8EC6-3EBBACC3C91D}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TinyXml2", "..\..\..\API\ide\visual_studio\TinyXml2\TinyXml2.vcxproj", "{ED4C41B7-5BAD-4F8B-8EC6-3EBBACC3C91D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GnssMetadata", "..\..\..\API\ide\visual_studio\GnssMetadata\GnssMetadata.vcxproj", "{C62DBEB4-2156-4A4A-8EB4-CAEC2686A0BE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Decoder", "Decoder\Decoder.vcxproj", "{A15199EE-1263-4EE9-AFF0-72396E41F8BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0FF620B-AE0C-497B-9559-5E686D09D397}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B0FF620B-AE0C-497B-9559-5E686D09D397}.Debug|Win32.Build.0 = Debug|Win32
+		{B0FF620B-AE0C-497B-9559-5E686D09D397}.Release|Win32.ActiveCfg = Release|Win32
+		{B0FF620B-AE0C-497B-9559-5E686D09D397}.Release|Win32.Build.0 = Release|Win32
+		{ED4C41B7-5BAD-4F8B-8EC6-3EBBACC3C91D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{ED4C41B7-5BAD-4F8B-8EC6-3EBBACC3C91D}.Debug|Win32.Build.0 = Debug|Win32
+		{ED4C41B7-5BAD-4F8B-8EC6-3EBBACC3C91D}.Release|Win32.ActiveCfg = Release|Win32
+		{ED4C41B7-5BAD-4F8B-8EC6-3EBBACC3C91D}.Release|Win32.Build.0 = Release|Win32
+		{C62DBEB4-2156-4A4A-8EB4-CAEC2686A0BE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C62DBEB4-2156-4A4A-8EB4-CAEC2686A0BE}.Debug|Win32.Build.0 = Debug|Win32
+		{C62DBEB4-2156-4A4A-8EB4-CAEC2686A0BE}.Release|Win32.ActiveCfg = Release|Win32
+		{C62DBEB4-2156-4A4A-8EB4-CAEC2686A0BE}.Release|Win32.Build.0 = Release|Win32
+		{A15199EE-1263-4EE9-AFF0-72396E41F8BB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A15199EE-1263-4EE9-AFF0-72396E41F8BB}.Debug|Win32.Build.0 = Debug|Win32
+		{A15199EE-1263-4EE9-AFF0-72396E41F8BB}.Release|Win32.ActiveCfg = Release|Win32
+		{A15199EE-1263-4EE9-AFF0-72396E41F8BB}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

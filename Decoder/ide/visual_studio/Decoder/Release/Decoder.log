@@ -1,0 +1,31 @@
+﻿  ChunkBuffer.cpp
+..\..\..\source\lib\ChunkBuffer.cpp(104): warning C4334: '<<' : result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
+..\..\..\source\lib\ChunkBuffer.cpp(123): warning C4334: '<<' : result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
+  Decoder.cpp
+..\..\..\source\lib\Decoder.cpp(526): warning C4996: 'chdir': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _chdir. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\direct.h(136) : see declaration of 'chdir'
+..\..\..\source\lib\Decoder.cpp(579): warning C4244: 'argument' : conversion from 'int64_t' to 'double', possible loss of data
+  DecStream.cpp
+..\..\..\source\lib\DecStream.cpp(14): warning C4244: 'initializing' : conversion from 'uint64_t' to 'unsigned int', possible loss of data
+..\..\..\source\lib\DecStream.cpp(15): warning C4244: 'initializing' : conversion from 'uint64_t' to 'unsigned int', possible loss of data
+  FileReader.cpp
+..\..\..\source\lib\FileReader.cpp(38): warning C4244: 'initializing' : conversion from 'uint64_t' to 'unsigned int', possible loss of data
+..\..\..\source\lib\FileReader.cpp(39): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strdup. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(245) : see declaration of 'strdup'
+..\..\..\source\lib\FileReader.cpp(43): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strdup. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(245) : see declaration of 'strdup'
+..\..\..\source\lib\FileReader.cpp(241): warning C4244: 'argument' : conversion from 'uint64_t' to 'LONG', possible loss of data
+..\..\..\source\lib\FileReader.cpp(253): warning C4018: '>=' : signed/unsigned mismatch
+..\..\..\source\lib\FileReader.cpp(272): warning C4244: 'argument' : conversion from 'uint64_t' to 'DWORD', possible loss of data
+..\..\..\source\lib\FileReader.cpp(299): warning C4244: 'argument' : conversion from 'volatile int64_t' to 'LONG', possible loss of data
+..\..\..\source\lib\FileReader.cpp(316): warning C4018: '<' : signed/unsigned mismatch
+  IBuffer.cpp
+..\..\..\source\lib\IBuffer.cpp(18): warning C4244: 'initializing' : conversion from 'uint64_t' to 'unsigned int', possible loss of data
+..\..\..\source\lib\IBuffer.cpp(78): warning C4244: '+=' : conversion from 'uint64_t' to 'volatile int', possible loss of data
+..\..\..\source\lib\IBuffer.cpp(135): warning C4244: 'argument' : conversion from 'uint64_t' to 'size_t', possible loss of data
+..\..\..\source\lib\IBuffer.cpp(154): warning C4244: '-=' : conversion from 'uint64_t' to 'volatile int', possible loss of data
+..\..\..\source\lib\IBuffer.cpp(187): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+..\..\..\source\lib\IBuffer.cpp(195): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+  StreamAnalytics.cpp
+  XMLtoMeta.cpp
+  Decoder.vcxproj -> C:\home\Dropbox\SDR_MetaData\WorkingVersion\Decoder\ide\visual_studio\Release\Decoder.lib

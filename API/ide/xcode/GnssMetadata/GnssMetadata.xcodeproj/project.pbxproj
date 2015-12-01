@@ -1,0 +1,416 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A6D859A1C09CDAE0036FE25 /* AnyUri.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85861C09CDAE0036FE25 /* AnyUri.cpp */; };
+		1A6D859B1C09CDAE0036FE25 /* AttributedObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85871C09CDAE0036FE25 /* AttributedObject.cpp */; };
+		1A6D859C1C09CDAE0036FE25 /* Band.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85881C09CDAE0036FE25 /* Band.cpp */; };
+		1A6D859D1C09CDAE0036FE25 /* BaseTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85891C09CDAE0036FE25 /* BaseTypes.cpp */; };
+		1A6D859E1C09CDAE0036FE25 /* Block.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D858A1C09CDAE0036FE25 /* Block.cpp */; };
+		1A6D859F1C09CDAE0036FE25 /* Chunk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D858B1C09CDAE0036FE25 /* Chunk.cpp */; };
+		1A6D85A01C09CDAE0036FE25 /* Cluster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D858C1C09CDAE0036FE25 /* Cluster.cpp */; };
+		1A6D85A11C09CDAE0036FE25 /* Comment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D858D1C09CDAE0036FE25 /* Comment.cpp */; };
+		1A6D85A21C09CDAE0036FE25 /* Date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D858E1C09CDAE0036FE25 /* Date.cpp */; };
+		1A6D85A31C09CDAE0036FE25 /* Duration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D858F1C09CDAE0036FE25 /* Duration.cpp */; };
+		1A6D85A41C09CDAE0036FE25 /* File.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85901C09CDAE0036FE25 /* File.cpp */; };
+		1A6D85A51C09CDAE0036FE25 /* Frequency.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85911C09CDAE0036FE25 /* Frequency.cpp */; };
+		1A6D85A61C09CDAE0036FE25 /* Lane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85921C09CDAE0036FE25 /* Lane.cpp */; };
+		1A6D85A71C09CDAE0036FE25 /* Lump.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85931C09CDAE0036FE25 /* Lump.cpp */; };
+		1A6D85A81C09CDAE0036FE25 /* Metadata.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85941C09CDAE0036FE25 /* Metadata.cpp */; };
+		1A6D85A91C09CDAE0036FE25 /* Position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85951C09CDAE0036FE25 /* Position.cpp */; };
+		1A6D85AA1C09CDAE0036FE25 /* Session.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85961C09CDAE0036FE25 /* Session.cpp */; };
+		1A6D85AB1C09CDAE0036FE25 /* Source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85971C09CDAE0036FE25 /* Source.cpp */; };
+		1A6D85AC1C09CDAE0036FE25 /* Stream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85981C09CDAE0036FE25 /* Stream.cpp */; };
+		1A6D85AD1C09CDAE0036FE25 /* System.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85991C09CDAE0036FE25 /* System.cpp */; };
+		1A6D85C61C0A779B0036FE25 /* tinyxml2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85C51C0A779B0036FE25 /* tinyxml2.cpp */; };
+		1A6D85DC1C0A78690036FE25 /* AnyUriTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85C71C0A78690036FE25 /* AnyUriTranslator.cpp */; };
+		1A6D85DD1C0A78690036FE25 /* BandTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85C81C0A78690036FE25 /* BandTranslator.cpp */; };
+		1A6D85DE1C0A78690036FE25 /* BlockTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85C91C0A78690036FE25 /* BlockTranslator.cpp */; };
+		1A6D85DF1C0A78690036FE25 /* ChunkTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85CA1C0A78690036FE25 /* ChunkTranslator.cpp */; };
+		1A6D85E01C0A78690036FE25 /* ClusterTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85CB1C0A78690036FE25 /* ClusterTranslator.cpp */; };
+		1A6D85E11C0A78690036FE25 /* DurationTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85CC1C0A78690036FE25 /* DurationTranslator.cpp */; };
+		1A6D85E21C0A78690036FE25 /* FileSetTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85CD1C0A78690036FE25 /* FileSetTranslator.cpp */; };
+		1A6D85E31C0A78690036FE25 /* FileTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85CE1C0A78690036FE25 /* FileTranslator.cpp */; };
+		1A6D85E41C0A78690036FE25 /* FrequencyTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85CF1C0A78690036FE25 /* FrequencyTranslator.cpp */; };
+		1A6D85E51C0A78690036FE25 /* LaneTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85D01C0A78690036FE25 /* LaneTranslator.cpp */; };
+		1A6D85E61C0A78690036FE25 /* LumpTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85D11C0A78690036FE25 /* LumpTranslator.cpp */; };
+		1A6D85E71C0A78690036FE25 /* MetadataTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85D21C0A78690036FE25 /* MetadataTranslator.cpp */; };
+		1A6D85E81C0A78690036FE25 /* OscillatorTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85D31C0A78690036FE25 /* OscillatorTranslator.cpp */; };
+		1A6D85E91C0A78690036FE25 /* PositionTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85D41C0A78690036FE25 /* PositionTranslator.cpp */; };
+		1A6D85EA1C0A78690036FE25 /* RfConfigTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85D51C0A78690036FE25 /* RfConfigTranslator.cpp */; };
+		1A6D85EB1C0A78690036FE25 /* SessionTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85D61C0A78690036FE25 /* SessionTranslator.cpp */; };
+		1A6D85EC1C0A78690036FE25 /* SourceTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85D71C0A78690036FE25 /* SourceTranslator.cpp */; };
+		1A6D85ED1C0A78690036FE25 /* StreamTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85D81C0A78690036FE25 /* StreamTranslator.cpp */; };
+		1A6D85EE1C0A78690036FE25 /* SystemTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85D91C0A78690036FE25 /* SystemTranslator.cpp */; };
+		1A6D85EF1C0A78690036FE25 /* Translator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85DA1C0A78690036FE25 /* Translator.cpp */; };
+		1A6D85F01C0A78690036FE25 /* XmlProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D85DB1C0A78690036FE25 /* XmlProcessor.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1A6D84F71C09CC170036FE25 /* libGnssMetadata.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGnssMetadata.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A6D85861C09CDAE0036FE25 /* AnyUri.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AnyUri.cpp; path = ../../../source/lib/GnssMetadata/AnyUri.cpp; sourceTree = "<group>"; };
+		1A6D85871C09CDAE0036FE25 /* AttributedObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AttributedObject.cpp; path = ../../../source/lib/GnssMetadata/AttributedObject.cpp; sourceTree = "<group>"; };
+		1A6D85881C09CDAE0036FE25 /* Band.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Band.cpp; path = ../../../source/lib/GnssMetadata/Band.cpp; sourceTree = "<group>"; };
+		1A6D85891C09CDAE0036FE25 /* BaseTypes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = BaseTypes.cpp; path = ../../../source/lib/GnssMetadata/BaseTypes.cpp; sourceTree = "<group>"; };
+		1A6D858A1C09CDAE0036FE25 /* Block.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Block.cpp; path = ../../../source/lib/GnssMetadata/Block.cpp; sourceTree = "<group>"; };
+		1A6D858B1C09CDAE0036FE25 /* Chunk.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Chunk.cpp; path = ../../../source/lib/GnssMetadata/Chunk.cpp; sourceTree = "<group>"; };
+		1A6D858C1C09CDAE0036FE25 /* Cluster.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Cluster.cpp; path = ../../../source/lib/GnssMetadata/Cluster.cpp; sourceTree = "<group>"; };
+		1A6D858D1C09CDAE0036FE25 /* Comment.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Comment.cpp; path = ../../../source/lib/GnssMetadata/Comment.cpp; sourceTree = "<group>"; };
+		1A6D858E1C09CDAE0036FE25 /* Date.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Date.cpp; path = ../../../source/lib/GnssMetadata/Date.cpp; sourceTree = "<group>"; };
+		1A6D858F1C09CDAE0036FE25 /* Duration.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Duration.cpp; path = ../../../source/lib/GnssMetadata/Duration.cpp; sourceTree = "<group>"; };
+		1A6D85901C09CDAE0036FE25 /* File.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = File.cpp; path = ../../../source/lib/GnssMetadata/File.cpp; sourceTree = "<group>"; };
+		1A6D85911C09CDAE0036FE25 /* Frequency.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Frequency.cpp; path = ../../../source/lib/GnssMetadata/Frequency.cpp; sourceTree = "<group>"; };
+		1A6D85921C09CDAE0036FE25 /* Lane.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Lane.cpp; path = ../../../source/lib/GnssMetadata/Lane.cpp; sourceTree = "<group>"; };
+		1A6D85931C09CDAE0036FE25 /* Lump.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Lump.cpp; path = ../../../source/lib/GnssMetadata/Lump.cpp; sourceTree = "<group>"; };
+		1A6D85941C09CDAE0036FE25 /* Metadata.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Metadata.cpp; path = ../../../source/lib/GnssMetadata/Metadata.cpp; sourceTree = "<group>"; };
+		1A6D85951C09CDAE0036FE25 /* Position.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Position.cpp; path = ../../../source/lib/GnssMetadata/Position.cpp; sourceTree = "<group>"; };
+		1A6D85961C09CDAE0036FE25 /* Session.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Session.cpp; path = ../../../source/lib/GnssMetadata/Session.cpp; sourceTree = "<group>"; };
+		1A6D85971C09CDAE0036FE25 /* Source.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Source.cpp; path = ../../../source/lib/GnssMetadata/Source.cpp; sourceTree = "<group>"; };
+		1A6D85981C09CDAE0036FE25 /* Stream.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Stream.cpp; path = ../../../source/lib/GnssMetadata/Stream.cpp; sourceTree = "<group>"; };
+		1A6D85991C09CDAE0036FE25 /* System.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = System.cpp; path = ../../../source/lib/GnssMetadata/System.cpp; sourceTree = "<group>"; };
+		1A6D85C51C0A779B0036FE25 /* tinyxml2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxml2.cpp; path = ../../../source/lib/tinyxml2/tinyxml2.cpp; sourceTree = "<group>"; };
+		1A6D85C71C0A78690036FE25 /* AnyUriTranslator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AnyUriTranslator.cpp; path = ../../../source/lib/GnssMetadata/Xml/AnyUriTranslator.cpp; sourceTree = "<group>"; };
+		1A6D85C81C0A78690036FE25 /* BandTranslator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = BandTranslator.cpp; path = ../../../source/lib/GnssMetadata/Xml/BandTranslator.cpp; sourceTree = "<group>"; };
+		1A6D85C91C0A78690036FE25 /* BlockTranslator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = BlockTranslator.cpp; path = ../../../source/lib/GnssMetadata/Xml/BlockTranslator.cpp; sourceTree = "<group>"; };
+		1A6D85CA1C0A78690036FE25 /* ChunkTranslator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ChunkTranslator.cpp; path = ../../../source/lib/GnssMetadata/Xml/ChunkTranslator.cpp; sourceTree = "<group>"; };
+		1A6D85CB1C0A78690036FE25 /* ClusterTranslator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ClusterTranslator.cpp; path = ../../../source/lib/GnssMetadata/Xml/ClusterTranslator.cpp; sourceTree = "<group>"; };
+		1A6D85CC1C0A78690036FE25 /* DurationTranslator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = DurationTranslator.cpp; path = ../../../source/lib/GnssMetadata/Xml/DurationTranslator.cpp; sourceTree = "<group>"; };
+		1A6D85CD1C0A78690036FE25 /* FileSetTranslator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = FileSetTranslator.cpp; path = ../../../source/lib/GnssMetadata/Xml/FileSetTranslator.cpp; sourceTree = "<group>"; };
+		1A6D85CE1C0A78690036FE25 /* FileTranslator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = FileTranslator.cpp; path = ../../../source/lib/GnssMetadata/Xml/FileTranslator.cpp; sourceTree = "<group>"; };
+		1A6D85CF1C0A78690036FE25 /* FrequencyTranslator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = FrequencyTranslator.cpp; path = ../../../source/lib/GnssMetadata/Xml/FrequencyTranslator.cpp; sourceTree = "<group>"; };
+		1A6D85D01C0A78690036FE25 /* LaneTranslator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LaneTranslator.cpp; path = ../../../source/lib/GnssMetadata/Xml/LaneTranslator.cpp; sourceTree = "<group>"; };
+		1A6D85D11C0A78690036FE25 /* LumpTranslator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LumpTranslator.cpp; path = ../../../source/lib/GnssMetadata/Xml/LumpTranslator.cpp; sourceTree = "<group>"; };
+		1A6D85D21C0A78690036FE25 /* MetadataTranslator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MetadataTranslator.cpp; path = ../../../source/lib/GnssMetadata/Xml/MetadataTranslator.cpp; sourceTree = "<group>"; };
+		1A6D85D31C0A78690036FE25 /* OscillatorTranslator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = OscillatorTranslator.cpp; path = ../../../source/lib/GnssMetadata/Xml/OscillatorTranslator.cpp; sourceTree = "<group>"; };
+		1A6D85D41C0A78690036FE25 /* PositionTranslator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PositionTranslator.cpp; path = ../../../source/lib/GnssMetadata/Xml/PositionTranslator.cpp; sourceTree = "<group>"; };
+		1A6D85D51C0A78690036FE25 /* RfConfigTranslator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = RfConfigTranslator.cpp; path = ../../../source/lib/GnssMetadata/Xml/RfConfigTranslator.cpp; sourceTree = "<group>"; };
+		1A6D85D61C0A78690036FE25 /* SessionTranslator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SessionTranslator.cpp; path = ../../../source/lib/GnssMetadata/Xml/SessionTranslator.cpp; sourceTree = "<group>"; };
+		1A6D85D71C0A78690036FE25 /* SourceTranslator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SourceTranslator.cpp; path = ../../../source/lib/GnssMetadata/Xml/SourceTranslator.cpp; sourceTree = "<group>"; };
+		1A6D85D81C0A78690036FE25 /* StreamTranslator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = StreamTranslator.cpp; path = ../../../source/lib/GnssMetadata/Xml/StreamTranslator.cpp; sourceTree = "<group>"; };
+		1A6D85D91C0A78690036FE25 /* SystemTranslator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SystemTranslator.cpp; path = ../../../source/lib/GnssMetadata/Xml/SystemTranslator.cpp; sourceTree = "<group>"; };
+		1A6D85DA1C0A78690036FE25 /* Translator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Translator.cpp; path = ../../../source/lib/GnssMetadata/Xml/Translator.cpp; sourceTree = "<group>"; };
+		1A6D85DB1C0A78690036FE25 /* XmlProcessor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = XmlProcessor.cpp; path = ../../../source/lib/GnssMetadata/Xml/XmlProcessor.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1A6D84F41C09CC170036FE25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A6D84EE1C09CC170036FE25 = {
+			isa = PBXGroup;
+			children = (
+				1A6D85C71C0A78690036FE25 /* AnyUriTranslator.cpp */,
+				1A6D85C81C0A78690036FE25 /* BandTranslator.cpp */,
+				1A6D85C91C0A78690036FE25 /* BlockTranslator.cpp */,
+				1A6D85CA1C0A78690036FE25 /* ChunkTranslator.cpp */,
+				1A6D85CB1C0A78690036FE25 /* ClusterTranslator.cpp */,
+				1A6D85CC1C0A78690036FE25 /* DurationTranslator.cpp */,
+				1A6D85CD1C0A78690036FE25 /* FileSetTranslator.cpp */,
+				1A6D85CE1C0A78690036FE25 /* FileTranslator.cpp */,
+				1A6D85CF1C0A78690036FE25 /* FrequencyTranslator.cpp */,
+				1A6D85D01C0A78690036FE25 /* LaneTranslator.cpp */,
+				1A6D85D11C0A78690036FE25 /* LumpTranslator.cpp */,
+				1A6D85D21C0A78690036FE25 /* MetadataTranslator.cpp */,
+				1A6D85D31C0A78690036FE25 /* OscillatorTranslator.cpp */,
+				1A6D85D41C0A78690036FE25 /* PositionTranslator.cpp */,
+				1A6D85D51C0A78690036FE25 /* RfConfigTranslator.cpp */,
+				1A6D85D61C0A78690036FE25 /* SessionTranslator.cpp */,
+				1A6D85D71C0A78690036FE25 /* SourceTranslator.cpp */,
+				1A6D85D81C0A78690036FE25 /* StreamTranslator.cpp */,
+				1A6D85D91C0A78690036FE25 /* SystemTranslator.cpp */,
+				1A6D85DA1C0A78690036FE25 /* Translator.cpp */,
+				1A6D85DB1C0A78690036FE25 /* XmlProcessor.cpp */,
+				1A6D85C51C0A779B0036FE25 /* tinyxml2.cpp */,
+				1A6D85861C09CDAE0036FE25 /* AnyUri.cpp */,
+				1A6D85871C09CDAE0036FE25 /* AttributedObject.cpp */,
+				1A6D85881C09CDAE0036FE25 /* Band.cpp */,
+				1A6D85891C09CDAE0036FE25 /* BaseTypes.cpp */,
+				1A6D858A1C09CDAE0036FE25 /* Block.cpp */,
+				1A6D858B1C09CDAE0036FE25 /* Chunk.cpp */,
+				1A6D858C1C09CDAE0036FE25 /* Cluster.cpp */,
+				1A6D858D1C09CDAE0036FE25 /* Comment.cpp */,
+				1A6D858E1C09CDAE0036FE25 /* Date.cpp */,
+				1A6D858F1C09CDAE0036FE25 /* Duration.cpp */,
+				1A6D85901C09CDAE0036FE25 /* File.cpp */,
+				1A6D85911C09CDAE0036FE25 /* Frequency.cpp */,
+				1A6D85921C09CDAE0036FE25 /* Lane.cpp */,
+				1A6D85931C09CDAE0036FE25 /* Lump.cpp */,
+				1A6D85941C09CDAE0036FE25 /* Metadata.cpp */,
+				1A6D85951C09CDAE0036FE25 /* Position.cpp */,
+				1A6D85961C09CDAE0036FE25 /* Session.cpp */,
+				1A6D85971C09CDAE0036FE25 /* Source.cpp */,
+				1A6D85981C09CDAE0036FE25 /* Stream.cpp */,
+				1A6D85991C09CDAE0036FE25 /* System.cpp */,
+				1A6D84F81C09CC170036FE25 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1A6D84F81C09CC170036FE25 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A6D84F71C09CC170036FE25 /* libGnssMetadata.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1A6D84F51C09CC170036FE25 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1A6D84F61C09CC170036FE25 /* GnssMetadata */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A6D85021C09CC170036FE25 /* Build configuration list for PBXNativeTarget "GnssMetadata" */;
+			buildPhases = (
+				1A6D84F31C09CC170036FE25 /* Sources */,
+				1A6D84F41C09CC170036FE25 /* Frameworks */,
+				1A6D84F51C09CC170036FE25 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GnssMetadata;
+			productName = GnssMetadata;
+			productReference = 1A6D84F71C09CC170036FE25 /* libGnssMetadata.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1A6D84EF1C09CC170036FE25 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = n/a;
+				TargetAttributes = {
+					1A6D84F61C09CC170036FE25 = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 1A6D84F21C09CC170036FE25 /* Build configuration list for PBXProject "GnssMetadata" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1A6D84EE1C09CC170036FE25;
+			productRefGroup = 1A6D84F81C09CC170036FE25 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1A6D84F61C09CC170036FE25 /* GnssMetadata */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A6D84F31C09CC170036FE25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A6D85DC1C0A78690036FE25 /* AnyUriTranslator.cpp in Sources */,
+				1A6D85DD1C0A78690036FE25 /* BandTranslator.cpp in Sources */,
+				1A6D85DE1C0A78690036FE25 /* BlockTranslator.cpp in Sources */,
+				1A6D85DF1C0A78690036FE25 /* ChunkTranslator.cpp in Sources */,
+				1A6D85E01C0A78690036FE25 /* ClusterTranslator.cpp in Sources */,
+				1A6D85E11C0A78690036FE25 /* DurationTranslator.cpp in Sources */,
+				1A6D85E21C0A78690036FE25 /* FileSetTranslator.cpp in Sources */,
+				1A6D85E31C0A78690036FE25 /* FileTranslator.cpp in Sources */,
+				1A6D85E41C0A78690036FE25 /* FrequencyTranslator.cpp in Sources */,
+				1A6D85E51C0A78690036FE25 /* LaneTranslator.cpp in Sources */,
+				1A6D85E61C0A78690036FE25 /* LumpTranslator.cpp in Sources */,
+				1A6D85E71C0A78690036FE25 /* MetadataTranslator.cpp in Sources */,
+				1A6D85E81C0A78690036FE25 /* OscillatorTranslator.cpp in Sources */,
+				1A6D85E91C0A78690036FE25 /* PositionTranslator.cpp in Sources */,
+				1A6D85EA1C0A78690036FE25 /* RfConfigTranslator.cpp in Sources */,
+				1A6D85EB1C0A78690036FE25 /* SessionTranslator.cpp in Sources */,
+				1A6D85EC1C0A78690036FE25 /* SourceTranslator.cpp in Sources */,
+				1A6D85ED1C0A78690036FE25 /* StreamTranslator.cpp in Sources */,
+				1A6D85EE1C0A78690036FE25 /* SystemTranslator.cpp in Sources */,
+				1A6D85EF1C0A78690036FE25 /* Translator.cpp in Sources */,
+				1A6D85F01C0A78690036FE25 /* XmlProcessor.cpp in Sources */,
+				1A6D85C61C0A779B0036FE25 /* tinyxml2.cpp in Sources */,
+				1A6D859A1C09CDAE0036FE25 /* AnyUri.cpp in Sources */,
+				1A6D859B1C09CDAE0036FE25 /* AttributedObject.cpp in Sources */,
+				1A6D859C1C09CDAE0036FE25 /* Band.cpp in Sources */,
+				1A6D859D1C09CDAE0036FE25 /* BaseTypes.cpp in Sources */,
+				1A6D859E1C09CDAE0036FE25 /* Block.cpp in Sources */,
+				1A6D859F1C09CDAE0036FE25 /* Chunk.cpp in Sources */,
+				1A6D85A01C09CDAE0036FE25 /* Cluster.cpp in Sources */,
+				1A6D85A11C09CDAE0036FE25 /* Comment.cpp in Sources */,
+				1A6D85A21C09CDAE0036FE25 /* Date.cpp in Sources */,
+				1A6D85A31C09CDAE0036FE25 /* Duration.cpp in Sources */,
+				1A6D85A41C09CDAE0036FE25 /* File.cpp in Sources */,
+				1A6D85A51C09CDAE0036FE25 /* Frequency.cpp in Sources */,
+				1A6D85A61C09CDAE0036FE25 /* Lane.cpp in Sources */,
+				1A6D85A71C09CDAE0036FE25 /* Lump.cpp in Sources */,
+				1A6D85A81C09CDAE0036FE25 /* Metadata.cpp in Sources */,
+				1A6D85A91C09CDAE0036FE25 /* Position.cpp in Sources */,
+				1A6D85AA1C09CDAE0036FE25 /* Session.cpp in Sources */,
+				1A6D85AB1C09CDAE0036FE25 /* Source.cpp in Sources */,
+				1A6D85AC1C09CDAE0036FE25 /* Stream.cpp in Sources */,
+				1A6D85AD1C09CDAE0036FE25 /* System.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1A6D85001C09CC170036FE25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1A6D85011C09CC170036FE25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		1A6D85031C09CC170036FE25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				HEADER_SEARCH_PATHS = (
+					../../../source/inc/,
+					../../../source/inc/GnssMetadata/,
+					../../../source/inc/GnssMetadata/Xml/,
+					../../../source/inc/TinyXml2/,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1A6D85041C09CC170036FE25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				HEADER_SEARCH_PATHS = (
+					../../../source/inc/,
+					../../../source/inc/GnssMetadata/,
+					../../../source/inc/GnssMetadata/Xml/,
+					../../../source/inc/TinyXml2/,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A6D84F21C09CC170036FE25 /* Build configuration list for PBXProject "GnssMetadata" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A6D85001C09CC170036FE25 /* Debug */,
+				1A6D85011C09CC170036FE25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A6D85021C09CC170036FE25 /* Build configuration list for PBXNativeTarget "GnssMetadata" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A6D85031C09CC170036FE25 /* Debug */,
+				1A6D85041C09CC170036FE25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1A6D84EF1C09CC170036FE25 /* Project object */;
+}

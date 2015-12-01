@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:TestApp/TestApp.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../API/ide/xcode/GnssMetadata/GnssMetadata.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Converter/Converter.xcodeproj">
+   </FileRef>
+</Workspace>

@@ -45,7 +45,7 @@
 			<chunk>
                 <sizeword>2</sizeword>
                 <countwords>1</countwords>
-                <endian>Undefined</endian>
+                <endian>Little</endian>
                 <padding>Tail</padding>
                 <wordshift>Left</wordshift>
 				<lump>

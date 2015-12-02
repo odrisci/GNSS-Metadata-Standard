@@ -27,42 +27,28 @@
 
 SampleConverter::SampleConverter( GnssMetadata::Metadata& md )
 {
-
-   GnssMetadata::LaneList::iterator  lnIt =     md.Lanes().begin();
-   
-   
-   
-   
-   
-   for( GnssMetadata::BlockList::iterator bkIt = lnIt->Blocks().begin(); bkIt != lnIt->Blocks().end(); ++bkIt )
+   LaneInterpreter* laneInterpreter;
+   for( GnssMetadata::LaneList::iterator  lnIt = md.Lanes().begin(); lnIt != md.Lanes().end(); ++lnIt)
    {
-      //create a block
-      BlockInterpreter* block = new BlockInterpreter(
-                                                     static_cast<uint32_t>( bkIt->Cycles() ),
-                                                     static_cast<uint32_t>( bkIt->SizeHeader() ),
-                                                     static_cast<uint32_t>( bkIt->SizeFooter() )
-                                                     );
       
-      
-      for( GnssMetadata::ChunkList::iterator ckIt = bkIt->Chunks().begin(); ckIt != bkIt->Chunks().end(); ++ckIt )
+      //create a lane
+      laneInterpreter = new LaneInterpreter;
+   
+      //populate it with blocks
+      BlockInterpreter* blockInterp;
+      for( GnssMetadata::BlockList::iterator bkIt = lnIt->Blocks().begin(); bkIt != lnIt->Blocks().end(); ++bkIt )
       {
-         Chunk* chunk;
-         //create the cunk interpreter using the md and info form ckIt
-         CreateChunkInterpreter( md, &(*ckIt), &chunk );
-         //now add it to the current block
-         block->AddChunk(chunk);
+         //create the block
+         CreateBlockInterpreter( md, &(*bkIt), &blockInterp );
+         //now push the block back into the list
+         laneInterpreter->AddBlock( blockInterp );
       }
-      
-      //now push the block back into the list
-      mBlockInterp.push_back( block );
-      
-   }
-   
-   
-   
 
-   
-   
+      //if everything is ok, add it to the list of Lanes
+      //JTC - check that it is ok!
+      mLaneInterps.push_back( laneInterpreter );
+   }
+      
 };
 
 SampleConverter::~SampleConverter()
@@ -71,10 +57,42 @@ SampleConverter::~SampleConverter()
    for( std::map<std::string,SampleSink*>::iterator it = mSampleSinks.begin();  it != mSampleSinks.end(); ++it )
       delete it->second;
 
-   for( std::vector<BlockInterpreter*>::iterator It = mBlockInterp.begin(); It != mBlockInterp.end(); ++It )
+   //delete the lane data
+   for( std::vector<LaneInterpreter*>::iterator It = mLaneInterps.begin(); It != mLaneInterps.end(); ++It )
       delete (*It);
+
 };
 
+bool SampleConverter::CreateBlockInterpreter( GnssMetadata::Metadata& md, GnssMetadata::Block* block, BlockInterpreter** blockInterp )
+{
+   
+   //create a block
+   *blockInterp = new BlockInterpreter(
+                                                   static_cast<uint32_t>( block->Cycles() ),
+                                                   static_cast<uint32_t>( block->SizeHeader() ),
+                                                   static_cast<uint32_t>( block->SizeFooter() )
+                                                   );
+      
+   for( GnssMetadata::ChunkList::iterator ckIt = block->Chunks().begin(); ckIt != block->Chunks().end(); ++ckIt )
+   {
+      Chunk* chunk;
+      //create the cunk interpreter using the md and info form ckIt
+      CreateChunkInterpreter( md, &(*ckIt), &chunk );
+      //now add it to the current block
+      (*blockInterp)->AddChunk(chunk);
+   }
+        
+   //
+   // ToDo: make meaningful return value
+   //
+   return true;
+
+};
+
+
+//
+// Perhaps just template this member function with chunk_t?
+//
 bool SampleConverter::CreateChunkInterpreter( GnssMetadata::Metadata& md, GnssMetadata::Chunk* chunk, Chunk** chunkInterp )
 {
    
@@ -166,18 +184,32 @@ void SampleConverter::Convert(const char* fileName, const uint32_t bytesToProces
    
    uint32_t bytesProcessed = 0;
    
-   //for now, just decode the first BlockInterpreter
-   BlockInterpreter* block = *(mBlockInterp.begin());
+   if( mLaneInterps.size() == 0 )
+   {
+      printf("No Lanes found. Terminating.\n");
+      return;
+   }
+
+   //for now, just decode the first Lane
+   LaneInterpreter* laneInterpreter= mLaneInterps.front();
    
    bool readBlockOK = false;
-   
    do
    {
-      readBlockOK = block->Interpret( packedFile, bytesProcessed, bytesToProcess );
+   
+      for( std::vector<BlockInterpreter*>::iterator It = laneInterpreter->Blocks().begin(); It != laneInterpreter->Blocks().end(); ++It )
+      {
+         BlockInterpreter* block = (*It);
+         //read the entire block
+         do
+         {
+            readBlockOK = block->Interpret( packedFile, bytesProcessed, bytesToProcess );
+         }
+         while( readBlockOK );
+      }
+
    }
    while( readBlockOK );
-   
-   
 
 
 };

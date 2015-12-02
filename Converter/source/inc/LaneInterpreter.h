@@ -18,55 +18,35 @@
  * along with Metadata API.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef CLASS_ChunkInterpreter
-#define CLASS_ChunkInterpreter
-#include <deque>
+#ifndef CLASS_LaneInterpreter
+#define CLASS_LaneInterpreter
 
+#include <vector>
 #include <GnssMetadata/Metadata.h>
-#include "SampleInterpreterFactory.h"
+#include "SampleSink.h"
+#include "BlockInterpreter.h"
 
-//pur virtual haldle class
-class Chunk
+
+class LaneInterpreter
 {
-protected:
-   Chunk( ){};
-public:
-   Chunk( const uint32_t countWords ){};
-   virtual ~Chunk(){};
-
-   virtual    void  AddSampleInterpreter( SampleInterpreter* splIntrp, const bool front = false ) = 0;
-   virtual    void  SetSourceEndianness( const GnssMetadata::Chunk::WordEndian& srcEndianness) = 0;
-   virtual    void  Interpret( )            = 0;
-   virtual    void* GetChunk()              = 0;
-   virtual uint32_t BytesPerChunk() const   = 0;
-};
-
-
-template<typename chunk_t,typename sample_base_t>
-class ChunkInterpreter : public Chunk
-{
-
-public:
-   SampleInterpreterFactory<chunk_t,sample_base_t> mSampleInterpFactory;
-
 protected:	
-	std::deque<SampleInterpreter*> mSampleInterpreters;
-   std::vector<chunk_t>           mDataChunk;
-   bool                           mSourceEndiannessIsDifferent;
+   
+   std::vector<BlockInterpreter*>    mBlockInterpreters;
 	
-protected:
-   void ChangeCunkEndianness( );
-
 public:	
-   ChunkInterpreter( const uint32_t countWords );
-	virtual  ~ChunkInterpreter();
-	void     AddSampleInterpreter( SampleInterpreter* splIntrp, const bool front = false );
-   void     SetSourceEndianness( const GnssMetadata::Chunk::WordEndian& srcEndianness );
-   void     Interpret( );
-   void*    GetChunk();
-   uint32_t BytesPerChunk() const;
+    LaneInterpreter( );
+	virtual  ~LaneInterpreter();
+
+   virtual void AddBlock( BlockInterpreter* newBlock );
+   virtual std::vector<BlockInterpreter*>&    Blocks();
+
 };
 
-#include "ChunkInterpreter.hpp"
+#endif //CLASS_LaneInterpreter
 
-#endif //CLASS_ChunkInterpreter
+
+
+
+
+
+

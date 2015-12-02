@@ -11,11 +11,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\source\inc\BlockInterpreter.h" />
     <ClInclude Include="..\..\..\source\inc\ChunkInterpreter.h" />
     <ClInclude Include="..\..\..\source\inc\ChunkInterpreter.hpp" />
     <ClInclude Include="..\..\..\source\inc\EncoderFunctions.h" />
     <ClInclude Include="..\..\..\source\inc\EndianFunctions.h" />
     <ClInclude Include="..\..\..\source\inc\FormatFunctions.h" />
+    <ClInclude Include="..\..\..\source\inc\LaneInterpreter.h" />
     <ClInclude Include="..\..\..\source\inc\SampleConverter.h" />
     <ClInclude Include="..\..\..\source\inc\SampleFileSink.h" />
     <ClInclude Include="..\..\..\source\inc\SampleFileSink.hpp" />
@@ -28,7 +30,9 @@
     <ClInclude Include="..\..\..\source\inc\SinkedSampleInterpreter.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\source\lib\BlockInterpreter.cpp" />
     <ClCompile Include="..\..\..\source\lib\EndianFunctions.cpp" />
+    <ClCompile Include="..\..\..\source\lib\LaneInterpreter.cpp" />
     <ClCompile Include="..\..\..\source\lib\SampleConverter.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

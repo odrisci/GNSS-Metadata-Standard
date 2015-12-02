@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1A098E801C0A811A00436F62 /* EndianFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A098E7E1C0A811A00436F62 /* EndianFunctions.cpp */; };
 		1A098E811C0A811A00436F62 /* SampleConverter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A098E7F1C0A811A00436F62 /* SampleConverter.cpp */; };
+		1A6534641C0EFC140028321A /* LaneInterpreter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A6534631C0EFC140028321A /* LaneInterpreter.cpp */; };
 		1AC04C231C0E656700D0E342 /* BlockInterpreter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AC04C221C0E656700D0E342 /* BlockInterpreter.cpp */; };
 /* End PBXBuildFile section */
 
@@ -16,6 +17,7 @@
 		1A098E701C0A80F500436F62 /* libConverter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libConverter.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A098E7E1C0A811A00436F62 /* EndianFunctions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = EndianFunctions.cpp; path = ../../../source/lib/EndianFunctions.cpp; sourceTree = "<group>"; };
 		1A098E7F1C0A811A00436F62 /* SampleConverter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SampleConverter.cpp; path = ../../../source/lib/SampleConverter.cpp; sourceTree = "<group>"; };
+		1A6534631C0EFC140028321A /* LaneInterpreter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LaneInterpreter.cpp; path = ../../../source/lib/LaneInterpreter.cpp; sourceTree = "<group>"; };
 		1AC04C221C0E656700D0E342 /* BlockInterpreter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = BlockInterpreter.cpp; path = ../../../source/lib/BlockInterpreter.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -33,6 +35,7 @@
 		1A098E671C0A80F500436F62 = {
 			isa = PBXGroup;
 			children = (
+				1A6534631C0EFC140028321A /* LaneInterpreter.cpp */,
 				1AC04C221C0E656700D0E342 /* BlockInterpreter.cpp */,
 				1A098E7E1C0A811A00436F62 /* EndianFunctions.cpp */,
 				1A098E7F1C0A811A00436F62 /* SampleConverter.cpp */,
@@ -122,6 +125,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A6534641C0EFC140028321A /* LaneInterpreter.cpp in Sources */,
 				1AC04C231C0E656700D0E342 /* BlockInterpreter.cpp in Sources */,
 				1A098E801C0A811A00436F62 /* EndianFunctions.cpp in Sources */,
 				1A098E811C0A811A00436F62 /* SampleConverter.cpp in Sources */,

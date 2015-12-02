@@ -16,3 +16,6 @@ ToDo:
    to a receiver, or a file etc.
    
    
+5) Add functionality to handle Chunk Shift-Direction variable. This can be implemented as an optional 
+   reversal of the chunk array once it is read, such that the remainder of the code alwyas processes
+   the chunk arrray in a shift-left manner. 

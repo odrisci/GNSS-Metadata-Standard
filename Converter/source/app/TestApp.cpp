@@ -14,7 +14,8 @@
 
 int main(int argc, char* argv[])
 {
-
+   
+   
    GnssMetadata::Metadata md;
    GnssMetadata::XmlProcessor xproc;
 

@@ -24,6 +24,7 @@
 #include <vector>
 #include <string>
 #include "SampleSink.h"
+#include "BlockInterpreter.h"
 #include "ChunkInterpreter.h"
 #include <GnssMetadata/Metadata.h>
 
@@ -32,11 +33,11 @@ class SampleConverter
 protected:
 
    std::map<std::string,SampleSink*> mSampleSinks;
-   std::vector<Chunk*>               mChunkIntrp;
+   std::vector<BlockInterpreter*>    mBlockInterp;
   
 
    //protected member functions, to keep the code clean and clear
-   bool CreateChunkInterpreter( GnssMetadata::Metadata& md, GnssMetadata::Chunk* chunk );
+   bool CreateChunkInterpreter( GnssMetadata::Metadata& md, GnssMetadata::Chunk* chunk, Chunk** chunkInterp  );
 
 public:
    SampleConverter( GnssMetadata::Metadata& md );

@@ -29,11 +29,39 @@ SampleConverter::SampleConverter( GnssMetadata::Metadata& md )
 {
 
    GnssMetadata::LaneList::iterator  lnIt =     md.Lanes().begin();
-   GnssMetadata::BlockList::iterator bkIt = lnIt->Blocks().begin();
-   GnssMetadata::ChunkList::iterator ckIt = bkIt->Chunks().begin();
+   
+   
+   
+   
+   
+   for( GnssMetadata::BlockList::iterator bkIt = lnIt->Blocks().begin(); bkIt != lnIt->Blocks().end(); ++bkIt )
+   {
+      //create a block
+      BlockInterpreter* block = new BlockInterpreter(
+                                                     static_cast<uint32_t>( bkIt->Cycles() ),
+                                                     static_cast<uint32_t>( bkIt->SizeHeader() ),
+                                                     static_cast<uint32_t>( bkIt->SizeFooter() )
+                                                     );
+      
+      
+      for( GnssMetadata::ChunkList::iterator ckIt = bkIt->Chunks().begin(); ckIt != bkIt->Chunks().end(); ++ckIt )
+      {
+         Chunk* chunk;
+         //create the cunk interpreter using the md and info form ckIt
+         CreateChunkInterpreter( md, &(*ckIt), &chunk );
+         //now add it to the current block
+         block->AddChunk(chunk);
+      }
+      
+      //now push the block back into the list
+      mBlockInterp.push_back( block );
+      
+   }
+   
+   
+   
 
-   //create the cunk interpreter using the md and info form ckIt
-   CreateChunkInterpreter( md, &(*ckIt) );
+   
    
 };
 
@@ -43,16 +71,17 @@ SampleConverter::~SampleConverter()
    for( std::map<std::string,SampleSink*>::iterator it = mSampleSinks.begin();  it != mSampleSinks.end(); ++it )
       delete it->second;
 
-   for( uint32_t c=0; c<mChunkIntrp.size(); c++ )
-      delete mChunkIntrp[c];
+   for( std::vector<BlockInterpreter*>::iterator It = mBlockInterp.begin(); It != mBlockInterp.end(); ++It )
+      delete (*It);
 };
 
-bool SampleConverter::CreateChunkInterpreter( GnssMetadata::Metadata& md, GnssMetadata::Chunk* chunk  )
+bool SampleConverter::CreateChunkInterpreter( GnssMetadata::Metadata& md, GnssMetadata::Chunk* chunk, Chunk** chunkInterp )
 {
    
    //create the chunk interpreter and keep a local type-specific reference here for now
    ChunkInterpreter<uint16_t,int8_t>* chunkIntrp = new ChunkInterpreter<uint16_t,int8_t>( static_cast<uint32_t>(chunk->CountWords()) );
-   mChunkIntrp.push_back( chunkIntrp );
+   // assign the address
+   *chunkInterp = chunkIntrp;
       
    uint32_t totalOccupiedBitsInChunk = 0;
    
@@ -98,7 +127,7 @@ bool SampleConverter::CreateChunkInterpreter( GnssMetadata::Metadata& md, GnssMe
          
          //now add all of the interpreters for this stream to the chunk-interpreter
          for( std::deque<SampleInterpreter*>::iterator it = streamSplIntrps.begin(); it != streamSplIntrps.end(); ++it )
-            mChunkIntrp.back()->AddSampleInterpreter( (*it) );
+            chunkIntrp->AddSampleInterpreter( (*it) );
          
          //keep a count of the total bit-occupation of the chunk
          totalOccupiedBitsInChunk += static_cast<uint32_t>( smIt->Packedbits() );
@@ -113,10 +142,9 @@ bool SampleConverter::CreateChunkInterpreter( GnssMetadata::Metadata& md, GnssMe
    if( numChunkPaddingBits > 0 && (chunk->Padding() != GnssMetadata::Chunk::WordPadding::None) )
    {
       bool front =  ( chunk->Padding() == GnssMetadata::Chunk::WordPadding::Head );
-      mChunkIntrp.back()->AddSampleInterpreter( new SampleInterpreter( numChunkPaddingBits ), front );
+      chunkIntrp->AddSampleInterpreter( new SampleInterpreter( numChunkPaddingBits ), front );
    }
-
-
+   
    //
    // ToDo: make meaningful return value
    //
@@ -136,22 +164,20 @@ void SampleConverter::Convert(const char* fileName, const uint32_t bytesToProces
       return;
    }
    
-   //get the chunk memory from the chunk interpreter
-   char*    pChunk = static_cast<char*>( mChunkIntrp.back()->GetChunk() );
-   uint32_t nBytes = mChunkIntrp.back()->BytesPerChunk();
-
-   //keep a track on how much has been processed
    uint32_t bytesProcessed = 0;
-
-   //lazy starting hack, file full of simple chunks
-   while( packedFile.read( pChunk, nBytes ).gcount() == nBytes )
+   
+   //for now, just decode the first BlockInterpreter
+   BlockInterpreter* block = *(mBlockInterp.begin());
+   
+   bool readBlockOK = false;
+   
+   do
    {
-      mChunkIntrp.back()->Interpret(  );
-      bytesProcessed += nBytes;
-
-      if( bytesToProcess != 0 && ( bytesProcessed >= bytesToProcess ) )
-         break;
-
+      readBlockOK = block->Interpret( packedFile, bytesProcessed, bytesToProcess );
    }
+   while( readBlockOK );
+   
+   
+
 
 };

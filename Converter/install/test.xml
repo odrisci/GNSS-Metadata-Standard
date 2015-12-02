@@ -39,7 +39,9 @@
 		<system id="Fourtune"/>
         
 		<block>
-            <cycles>1</cycles>
+            <cycles>0</cycles>
+            <sizeheader>0</sizeheader>
+            <sizefooter>0</sizefooter>
 			<chunk>
                 <sizeword>2</sizeword>
                 <countwords>1</countwords>

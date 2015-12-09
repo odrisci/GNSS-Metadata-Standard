@@ -19,19 +19,18 @@ int main(int argc, char* argv[])
    GnssMetadata::Metadata md;
    GnssMetadata::XmlProcessor xproc;
 
-   if( !xproc.Load( "test.xml", false, md) )
+   if( !xproc.Load( "../../../data/150408_125245_UTC.xml", false, md) )
    {
       printf("Could not load metadata. Terminating.\n");
       return -1;
    }
    
-   // create a SampleSink Repository here, and pass a reference to SampleConverter
+   //ToDo (maybe) create a SampleSink Repository here, and pass a reference to SampleConverter
    // - sample converter creates instances of SampleSink, by name, ans stores pointer
    // - the Repo here will `keep' them, share them with others, and delete them
    // - the converter will only `feed' them
    // - maybe they are presented as `sources' to some receievr, maybe they just dump to file...
-   // - SampleConverter doesn't know what type they take - finally!
-
+   
    SampleConverter spcv;
 
    //open the Metadata Converter

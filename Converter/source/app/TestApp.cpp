@@ -39,7 +39,7 @@ int main(int argc, char* argv[])
    spcv.Open<int8_t>( md );
 
    //perform the conversion
-   spcv.Convert( "../../../data/150408_125245_UTC.dat", 2*1024*1024 );
+   spcv.Convert( "../../../data/150408_125245_UTC.dat", 1024*1024 );
 
    //close the converter
    spcv.Close();

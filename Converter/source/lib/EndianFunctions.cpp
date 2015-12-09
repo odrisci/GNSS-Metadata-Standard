@@ -18,10 +18,10 @@
  * along with Metadata API.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NAMESPACE_EndianFunctions
-#define NAMESPACE_EndianFunctions
 
 #include <stdint.h>
+#include "EndianFunctions.h"
+
 
 namespace EndianFunctions
 {
@@ -65,5 +65,3 @@ namespace EndianFunctions
 	};	
 	
 };//end namespace EndianFunctions
-
-#endif //NAMESPACE_EndianFunctions

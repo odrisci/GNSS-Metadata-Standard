@@ -36,6 +36,7 @@ int main(int argc, char* argv[])
    //open the Metadata Converter
    // - the template type defines the converted file type
    // - the argument defines the metadata
+   // > tested int8_t, int16_t, int32_t, int64_t, float, double
    spcv.Open<int8_t>( md );
 
    //perform the conversion

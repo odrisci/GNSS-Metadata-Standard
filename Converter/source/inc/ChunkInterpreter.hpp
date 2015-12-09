@@ -106,8 +106,10 @@ void ChunkInterpreter<chunk_t, sample_base_t>::ChangeCunkEndianness( )
    //it seems some compilers don't like dependent definitions of iterators...
    typedef typename std::vector<chunk_t>::iterator iterator;
    for( iterator it = mDataChunk.begin(); it != mDataChunk.end(); ++it )
-      (*it) = EndianFunctions::ChangeEndianness( (*it) );
-
+   {
+      (*it) = EndianFunctions::ChangeEndianness( *it );
+   }
+   
 };
 
 template<typename chunk_t,typename sample_base_t>

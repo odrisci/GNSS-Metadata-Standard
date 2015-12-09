@@ -45,6 +45,8 @@ public:
 template<typename chunk_t,typename sample_base_t>
 class ChunkInterpreter : public Chunk
 {
+public:
+   typedef chunk_t myChunkType_t;
 
 public:
    SampleInterpreterFactory<chunk_t,sample_base_t> mSampleInterpFactory;

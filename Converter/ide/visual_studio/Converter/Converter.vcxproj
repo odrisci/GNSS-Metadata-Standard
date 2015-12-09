@@ -19,6 +19,7 @@
     <ClInclude Include="..\..\..\source\inc\FormatFunctions.h" />
     <ClInclude Include="..\..\..\source\inc\LaneInterpreter.h" />
     <ClInclude Include="..\..\..\source\inc\SampleConverter.h" />
+    <ClInclude Include="..\..\..\source\inc\SampleConverter.hpp" />
     <ClInclude Include="..\..\..\source\inc\SampleFileSink.h" />
     <ClInclude Include="..\..\..\source\inc\SampleFileSink.hpp" />
     <ClInclude Include="..\..\..\source\inc\SampleInterpreter.h" />

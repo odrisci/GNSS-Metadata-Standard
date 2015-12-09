@@ -32,21 +32,28 @@ class SampleConverter
 {
 protected:
 
+   bool mIsOpen;
+
    std::map<std::string,SampleSink*> mSampleSinks;
    std::vector<LaneInterpreter*>     mLaneInterps;
-
-  
+     
    //protected member functions, to keep the code clean and clear
+   template<typename chunk_t, typename sample_base_t>
    bool CreateChunkInterpreter( GnssMetadata::Metadata& md, GnssMetadata::Chunk* chunk, Chunk** chunkInterp  );
+   template<typename sample_base_t>
    bool CreateBlockInterpreter( GnssMetadata::Metadata& md, GnssMetadata::Block* block, BlockInterpreter** blockInterp );
 
 public:
-   SampleConverter( GnssMetadata::Metadata& md );
+   SampleConverter( );
    virtual ~SampleConverter(void);
 
+   template<typename sample_base_t>
+   bool Open( GnssMetadata::Metadata& md );
+   void Close();
    void Convert(const char* fileName, const uint32_t bytesToProcess = 0);
  
 };
 
+#include "SampleConverter.hpp"
 
 #endif // CLASS_SampleConverter

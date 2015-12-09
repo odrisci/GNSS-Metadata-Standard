@@ -32,6 +32,11 @@ namespace EndianFunctions
    //   so use with caution, and feel free to inform me of bugs, I'll do my best
    //
    //
+   uint8_t ChangeEndianness( const uint8_t in )
+	{
+		return in;
+	};
+
 	uint16_t ChangeEndianness( const uint16_t in )
 	{
 		return  ( in >> 8 ) |   //move byte 1 to 0

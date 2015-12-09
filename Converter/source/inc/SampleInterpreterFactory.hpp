@@ -75,7 +75,7 @@ bool SampleInterpreterFactory<chunk_t,sample_base_t>::Create(
       return false;
    }
 
-   smplIntrp = new SinkedSampleInterpreter<uint16_t,sample_base_t>( 
+   smplIntrp = new SinkedSampleInterpreter<chunk_t,sample_base_t>( 
                         BitWidth( fmt, qnt ), 
                         mEncoderFunctionMap[enc], 
                         mFormatFunctionMap[fmt],

@@ -32,6 +32,9 @@ namespace EndianFunctions
    //   so use with caution, and feel free to inform me of bugs, I'll do my best
    //
    //
+   template<typename T>
+   T ChangeEndianness( const T in );
+
 	uint16_t ChangeEndianness( const uint16_t in );
 
 	uint32_t ChangeEndianness( const uint32_t in );

@@ -25,7 +25,7 @@
 #include <math.h>
 using namespace GnssMetadata;
 
-#if defined (LINUX) || defined (__clang__)
+#if !defined (_WIN32) && !defined (_WIN64)
     #define _snprintf snprintf
 #endif
 

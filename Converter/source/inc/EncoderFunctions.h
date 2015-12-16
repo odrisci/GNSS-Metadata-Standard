@@ -21,6 +21,8 @@
 #ifndef NAMESPACE_EncoderFunctions
 #define NAMESPACE_EncoderFunctions
 
+#include <limits>
+
 namespace SampleEncoderFunctions
 {
    //

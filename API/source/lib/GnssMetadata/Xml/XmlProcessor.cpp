@@ -45,8 +45,8 @@
 using namespace GnssMetadata;
 using namespace tinyxml2;
 
-#ifdef __APPLE__
-#define _snprintf snprintf
+#if !defined(_WIN32) && !defined(WIN64)
+   #define _snprintf snprintf
 #endif
 
 

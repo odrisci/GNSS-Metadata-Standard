@@ -86,13 +86,13 @@ void ChunkInterpreter<chunk_t, sample_base_t>::SetSourceEndianness( const GnssMe
       return;
 
    //no need to swap if the source is undefined
-   if( sizeof( chunk_t ) == GnssMetadata::Chunk::WordEndian::Undefined )
+   if( sizeof( chunk_t ) == GnssMetadata::Chunk::Undefined )
       return;
    
    //check my own endianness
     uint16_t number = 0x1;
     uint8_t *numPtr = (uint8_t*)&number;
-    GnssMetadata::Chunk::WordEndian myEndianness = ( (numPtr[0] == 1) ? GnssMetadata::Chunk::WordEndian::Little : GnssMetadata::Chunk::WordEndian::Big );
+    GnssMetadata::Chunk::WordEndian myEndianness = ( (numPtr[0] == 1) ? GnssMetadata::Chunk::Little : GnssMetadata::Chunk::Big );
 
     mSourceEndiannessIsDifferent = ( myEndianness != srcEndianness );
 };

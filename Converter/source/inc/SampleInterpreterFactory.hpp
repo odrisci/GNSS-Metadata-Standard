@@ -20,7 +20,7 @@
  
 #include "EncoderFunctions.h"
 #include "FormatFunctions.h"
-
+#include <GnssMetadata/Metadata.h>
 
 template<typename chunk_t, typename sample_base_t>
 SampleInterpreterFactory<chunk_t,sample_base_t>::SampleInterpreterFactory()
@@ -33,16 +33,16 @@ SampleInterpreterFactory<chunk_t,sample_base_t>::SampleInterpreterFactory()
    mEncoderFunctionMap[ "INT" ]  = &SampleEncoderFunctions::TwosCompliment;
 
    // "introduce" the FormatFunctions to the Factory
-   mFormatFunctionMap[ GnssMetadata::Stream::SampleFormat::IF   ] = &SampleFormatFunctions::IF<chunk_t,sample_base_t>;
-   mFormatFunctionMap[ GnssMetadata::Stream::SampleFormat::IFn  ] = &SampleFormatFunctions::IFn<chunk_t,sample_base_t>;
-   mFormatFunctionMap[ GnssMetadata::Stream::SampleFormat::IQ   ] = &SampleFormatFunctions::IQ<chunk_t,sample_base_t>;
-   mFormatFunctionMap[ GnssMetadata::Stream::SampleFormat::IQn  ] = &SampleFormatFunctions::IQn<chunk_t,sample_base_t>;
-   mFormatFunctionMap[ GnssMetadata::Stream::SampleFormat::InQ  ] = &SampleFormatFunctions::InQ<chunk_t,sample_base_t>;
-   mFormatFunctionMap[ GnssMetadata::Stream::SampleFormat::InQn ] = &SampleFormatFunctions::InQn<chunk_t,sample_base_t>;
-   mFormatFunctionMap[ GnssMetadata::Stream::SampleFormat::IQ   ] = &SampleFormatFunctions::IQ<chunk_t,sample_base_t>;
-   mFormatFunctionMap[ GnssMetadata::Stream::SampleFormat::QIn  ] = &SampleFormatFunctions::QIn<chunk_t,sample_base_t>;
-   mFormatFunctionMap[ GnssMetadata::Stream::SampleFormat::QnI  ] = &SampleFormatFunctions::QnI<chunk_t,sample_base_t>;
-   mFormatFunctionMap[ GnssMetadata::Stream::SampleFormat::QnIn ] = &SampleFormatFunctions::QnIn<chunk_t,sample_base_t>;
+   mFormatFunctionMap[ GnssMetadata::Stream::IF   ] = &SampleFormatFunctions::IF<chunk_t,sample_base_t>;
+   mFormatFunctionMap[ GnssMetadata::Stream::IFn  ] = &SampleFormatFunctions::IFn<chunk_t,sample_base_t>;
+   mFormatFunctionMap[ GnssMetadata::Stream::IQ   ] = &SampleFormatFunctions::IQ<chunk_t,sample_base_t>;
+   mFormatFunctionMap[ GnssMetadata::Stream::IQn  ] = &SampleFormatFunctions::IQn<chunk_t,sample_base_t>;
+   mFormatFunctionMap[ GnssMetadata::Stream::InQ  ] = &SampleFormatFunctions::InQ<chunk_t,sample_base_t>;
+   mFormatFunctionMap[ GnssMetadata::Stream::InQn ] = &SampleFormatFunctions::InQn<chunk_t,sample_base_t>;
+   mFormatFunctionMap[ GnssMetadata::Stream::IQ   ] = &SampleFormatFunctions::IQ<chunk_t,sample_base_t>;
+   mFormatFunctionMap[ GnssMetadata::Stream::QIn  ] = &SampleFormatFunctions::QIn<chunk_t,sample_base_t>;
+   mFormatFunctionMap[ GnssMetadata::Stream::QnI  ] = &SampleFormatFunctions::QnI<chunk_t,sample_base_t>;
+   mFormatFunctionMap[ GnssMetadata::Stream::QnIn ] = &SampleFormatFunctions::QnIn<chunk_t,sample_base_t>;
 
 };
 
@@ -93,8 +93,8 @@ uint32_t SampleInterpreterFactory<chunk_t,sample_base_t>::BitWidth( const GnssMe
    //move to static function of a factory later?
    switch( fmt )
    {
-      case GnssMetadata::Stream::SampleFormat::IF  :
-      case GnssMetadata::Stream::SampleFormat::IFn :
+      case GnssMetadata::Stream::IF  :
+      case GnssMetadata::Stream::IFn :
          return static_cast<uint32_t>(qnt);
       default:
          return 2 * static_cast<uint32_t>(qnt);

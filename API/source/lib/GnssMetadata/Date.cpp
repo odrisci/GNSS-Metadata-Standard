@@ -57,9 +57,10 @@ static time_t UtcYmdhmsToTime_T(int year, int mon, int day, int hour, int min, i
 	temp_tm->tm_mon = mon;
 	temp_tm->tm_year = (year > 1900 ? year - 1900 : year);
 	temp_time_t=mktime(temp_tm);    
-#if !defined (LINUX) && !defined (__clang__) 
+#if defined(_WIN32) || defined(_WIN64)
 	temp_time_t-=_timezone;	// undo any correction for timezone/daylight savings system did
 #endif
+
 	return temp_time_t;
 }
 

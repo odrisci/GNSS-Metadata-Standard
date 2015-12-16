@@ -149,11 +149,11 @@ bool SampleConverter::CreateChunkInterpreter( GnssMetadata::Metadata& md, GnssMe
             streamSplIntrps.push_back(splIntrp);
          }
          
-         if( numPaddingBits > 0 && ( smIt->Alignment() != GnssMetadata::Stream::StreamAlignment::Undefined) )
+         if( numPaddingBits > 0 && ( smIt->Alignment() != GnssMetadata::Stream::Undefined) )
          {
             //if necessary, make a padding-interpreter (doing nothing other thank occupying space)
             SampleInterpreter* splIntrp = new SampleInterpreter( numPaddingBits );
-            if ( smIt->Alignment() == GnssMetadata::Stream::StreamAlignment::Right )
+            if ( smIt->Alignment() == GnssMetadata::Stream::Right )
                streamSplIntrps.push_front(splIntrp);
             else
                streamSplIntrps.push_back(splIntrp);
@@ -173,9 +173,9 @@ bool SampleConverter::CreateChunkInterpreter( GnssMetadata::Metadata& md, GnssMe
    
    //now apply some padding to fill out the remainder of the chunk bits
    uint32_t numChunkPaddingBits = 8*sizeof(chunk_t)*static_cast<uint32_t>(chunk->CountWords()) - totalOccupiedBitsInChunk;
-   if( numChunkPaddingBits > 0 && (chunk->Padding() != GnssMetadata::Chunk::WordPadding::None) )
+   if( numChunkPaddingBits > 0 && (chunk->Padding() != GnssMetadata::Chunk::None) )
    {
-      bool front =  ( chunk->Padding() == GnssMetadata::Chunk::WordPadding::Head );
+      bool front =  ( chunk->Padding() == GnssMetadata::Chunk::Head );
       chunkIntrp->AddSampleInterpreter( new SampleInterpreter( numChunkPaddingBits ), front );
    }
    

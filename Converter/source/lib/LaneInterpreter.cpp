@@ -23,7 +23,8 @@
 
 std::vector<BlockInterpreter*> mBlockInterpreters;
 
-LaneInterpreter::LaneInterpreter( )
+LaneInterpreter::LaneInterpreter( std::string fileURL ):
+mFileURL(fileURL)
 {
 	
 	mBlockInterpreters.resize(0);
@@ -50,5 +51,10 @@ std::vector<BlockInterpreter*>& LaneInterpreter::Blocks()
    
    return mBlockInterpreters;
    
+};
+
+const std::string LaneInterpreter::FileURL() const
+{
+   return mFileURL;
 };
 

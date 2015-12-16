@@ -21,6 +21,7 @@
 #ifndef CLASS_LaneInterpreter
 #define CLASS_LaneInterpreter
 
+#include <string>
 #include <vector>
 #include <GnssMetadata/Metadata.h>
 #include "SampleSink.h"
@@ -30,16 +31,16 @@
 class LaneInterpreter
 {
 protected:	
-   
+   std::string                       mFileURL;
    std::vector<BlockInterpreter*>    mBlockInterpreters;
 	
 public:	
-    LaneInterpreter( );
+    LaneInterpreter( std::string fileURL );
 	virtual  ~LaneInterpreter();
 
    virtual void AddBlock( BlockInterpreter* newBlock );
    virtual std::vector<BlockInterpreter*>&    Blocks();
-
+   const std::string FileURL() const;
 };
 
 #endif //CLASS_LaneInterpreter

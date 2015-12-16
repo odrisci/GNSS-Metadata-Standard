@@ -51,7 +51,7 @@ int processJrcData( void )
    spcv.Open<int8_t>( md );
 
    //perform the conversion
-   spcv.Convert( "150408_125245_UTC.dat", 1024*1024 );
+   spcv.Convert( 1024*1024 );
 
    //close the converter
    spcv.Close();
@@ -79,7 +79,7 @@ int processIfenData( void )
    spcv.Open<int8_t>( md );
 
    //perform the conversion 
-   spcv.Convert( "RoofTop_FE0_Band0.stream", 1024*1024 ); // need to include second stream here
+   spcv.Convert( 1024*1024 ); 
 
    //close the converter
    spcv.Close();

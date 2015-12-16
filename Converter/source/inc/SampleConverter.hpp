@@ -31,14 +31,41 @@ bool SampleConverter::Open( GnssMetadata::Metadata& md )
       return false;
    }
 
+   //find the files
+   for( GnssMetadata::FileList::iterator  flIt = md.Files().begin(); flIt != md.Files().end(); ++flIt)
+   {
+      printf("File: %s\n",flIt->Url().toString().c_str());
+      printf("Lane: %s\n",flIt->Lane().Id().c_str());
+   }
 
    LaneInterpreter* laneInterpreter;
    
    for( GnssMetadata::LaneList::iterator  lnIt = md.Lanes().begin(); lnIt != md.Lanes().end(); ++lnIt)
    {
+
+      //first make sure that we can find a file for this lane
+      bool foundFileForLane = false;
+      std::string laneID = lnIt->Id();
+      std::string fileURL;
+      //search through files
+      for( GnssMetadata::FileList::iterator  flIt = md.Files().begin(); flIt != md.Files().end(); ++flIt)
+      {
+         if(flIt->Lane().Id() == laneID)
+         {
+            foundFileForLane = true;
+            fileURL = flIt->Url().toString();
+         }
+      }
+      //skip lane if we have no file
+      if( !foundFileForLane )
+      {
+         printf("Error: No file found for Lane: `%s'. Skipping.\n",laneID.c_str());
+         continue;
+      }
+
       //create a lane
-      laneInterpreter = new LaneInterpreter;
-   
+      laneInterpreter = new LaneInterpreter( fileURL );
+
       //populate it with blocks
       BlockInterpreter* blockInterp;
       for( GnssMetadata::BlockList::iterator bkIt = lnIt->Blocks().begin(); bkIt != lnIt->Blocks().end(); ++bkIt )

@@ -58,7 +58,7 @@ void SampleConverter::Close()
 };
 
 
-void SampleConverter::Convert(const char* fileName, const uint32_t bytesToProcess )
+void SampleConverter::Convert( const uint32_t bytesToProcess )
 {
 
    if( !mIsOpen )
@@ -67,55 +67,49 @@ void SampleConverter::Convert(const char* fileName, const uint32_t bytesToProces
       return;
    }
 
-   //
-   //
-   // So we have a little work to do here, such that the LaneInterpreter looks in the correct file
-   // Steps to take:
-   //     - Upon the Open() call, we should assign an input file to the LaneInterpreter
-   //     - maybe it can actually be opened there too, as an extra check
-   //     - when we get here, we can simply pull out the ifstream& from LaneInterpreter* 
-   //     - and, of course, iterate over all of the LaneInterpreters...
-   //
-
-
-
-   //open the file and read one chunk at a time, later we can sort out 
-   //buffering this data
-   std::ifstream packedFile( fileName, std::ios::binary );
-   if( !packedFile.is_open() )
-   {
-      printf("Could not open file: `%s'.\n",fileName);
-      return;
-   }
-   
-   uint32_t bytesProcessed = 0;
-   
+   // Do we have anything to do?
    if( mLaneInterps.size() == 0 )
    {
       printf("No Lanes found. Terminating.\n");
       return;
    }
 
-   //for now, just decode the first Lane
-   LaneInterpreter* laneInterpreter= mLaneInterps.front();
-   
-   bool readBlockOK = false;
-   do
+
+   // otherwise iterate over the lanes and do the unpacking/converting
+   for( std::vector<LaneInterpreter*>::iterator lnIt = mLaneInterps.begin(); lnIt != mLaneInterps.end(); lnIt++  )
    {
-   
-      for( std::vector<BlockInterpreter*>::iterator It = laneInterpreter->Blocks().begin(); It != laneInterpreter->Blocks().end(); ++It )
+
+      //open the file and read one chunk at a time, later we can sort out 
+      //buffering this data
+      std::ifstream packedFile( (*lnIt)->FileURL().c_str(), std::ios::binary );
+      if( !packedFile.is_open() )
       {
-         BlockInterpreter* block = (*It);
-         //read the entire block
-         do
-         {
-            readBlockOK = block->Interpret( packedFile, bytesProcessed, bytesToProcess );
-         }
-         while( readBlockOK );
+         printf("Could not open file: `%s'.\n", (*lnIt)->FileURL().c_str() );
+         continue;
       }
+   
+      uint32_t bytesProcessed = 0;
+   
+      //for now, just decode the first Lane
+      LaneInterpreter* laneInterpreter= (*lnIt);
+   
+      bool readBlockOK = false;
+      do
+      {
+   
+         for( std::vector<BlockInterpreter*>::iterator It = laneInterpreter->Blocks().begin(); It != laneInterpreter->Blocks().end(); ++It )
+         {
+            BlockInterpreter* block = (*It);
+            //read the entire block
+            do
+            {
+               readBlockOK = block->Interpret( packedFile, bytesProcessed, bytesToProcess );
+            }
+            while( readBlockOK );
+         }
 
-   }
-   while( readBlockOK );
+      }
+      while( readBlockOK );
 
-
+   }//end for( lnIt )
 };

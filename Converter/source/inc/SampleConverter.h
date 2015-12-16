@@ -50,7 +50,7 @@ public:
    template<typename sample_base_t>
    bool Open( GnssMetadata::Metadata& md );
    void Close();
-   void Convert(const char* fileName, const uint32_t bytesToProcess = 0);
+   void Convert( const uint32_t bytesToProcess = 0 );
  
 };
 

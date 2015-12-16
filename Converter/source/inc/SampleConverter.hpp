@@ -108,21 +108,24 @@ bool SampleConverter::CreateBlockInterpreter( GnssMetadata::Metadata& md, GnssMe
       switch( ckIt->SizeWord() )
       {
       case 1:
-         CreateChunkInterpreter< uint8_t, sample_base_t>( md, &(*ckIt), &chunk );
+         CreateChunkInterpreter< uint8_t, sample_base_t>( &(*ckIt), &chunk );
          break;
       case 2:
-         CreateChunkInterpreter<uint16_t, sample_base_t>( md, &(*ckIt), &chunk );
+         CreateChunkInterpreter<uint16_t, sample_base_t>( &(*ckIt), &chunk );
          break;
       case 4:
-         CreateChunkInterpreter<uint32_t, sample_base_t>( md, &(*ckIt), &chunk );
+         CreateChunkInterpreter<uint32_t, sample_base_t>( &(*ckIt), &chunk );
          break;
       case 8:
-         CreateChunkInterpreter<uint64_t, sample_base_t>( md, &(*ckIt), &chunk );
+         CreateChunkInterpreter<uint64_t, sample_base_t>( &(*ckIt), &chunk );
          break;
       default:
          printf("Error: unsupported Chunk::SizeWord(): %ld\n",ckIt->SizeWord());
          break;
       }
+      
+      chunk->SetSourceEndianness( (*ckIt).Endian() );
+      
       //now add it to the current block
       (*blockInterp)->AddChunk(chunk);
    }
@@ -137,13 +140,15 @@ bool SampleConverter::CreateBlockInterpreter( GnssMetadata::Metadata& md, GnssMe
 
 
 template<typename chunk_t, typename sample_base_t>
-bool SampleConverter::CreateChunkInterpreter( GnssMetadata::Metadata& md, GnssMetadata::Chunk* chunk, Chunk** chunkInterp )
+bool SampleConverter::CreateChunkInterpreter( GnssMetadata::Chunk* chunk, Chunk** chunkInterp )
 {
    
    //create the chunk interpreter and keep a local type-specific reference here for now
    ChunkInterpreter<chunk_t,sample_base_t>* chunkIntrp = new ChunkInterpreter<chunk_t,sample_base_t>( static_cast<uint32_t>(chunk->CountWords()) );
    // assign the address
    *chunkInterp = chunkIntrp;
+   
+   
 
    uint32_t totalOccupiedBitsInChunk = 0;
    

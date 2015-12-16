@@ -39,7 +39,7 @@ protected:
      
    //protected member functions, to keep the code clean and clear
    template<typename chunk_t, typename sample_base_t>
-   bool CreateChunkInterpreter( GnssMetadata::Metadata& md, GnssMetadata::Chunk* chunk, Chunk** chunkInterp  );
+   bool CreateChunkInterpreter( GnssMetadata::Chunk* chunk, Chunk** chunkInterp  );
    template<typename sample_base_t>
    bool CreateBlockInterpreter( GnssMetadata::Metadata& md, GnssMetadata::Block* block, BlockInterpreter** blockInterp );
 

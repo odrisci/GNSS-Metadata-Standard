@@ -67,7 +67,7 @@ bool BlockInterpreter::Interpret( std::ifstream& packedFile, uint32_t& bytesProc
          uint32_t nBytes = (*ckIt)->BytesPerChunk();
       
          //read one chunk
-         if( packedFile.read( pChunk, nBytes ).gcount() == nBytes )
+         if( packedFile.read( pChunk, nBytes ).gcount() == static_cast<std::streamsize>(nBytes) )
          {
             (*ckIt)->Interpret(  );
             bytesProcessed += nBytes;

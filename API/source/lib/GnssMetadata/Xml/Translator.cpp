@@ -253,7 +253,7 @@ void Translator::WriteElement( const char* pszElemName, size_t ivalue, XMLElemen
 	{
 		char buff[64];
 		XMLElement* pelem = pcontainer->GetDocument()->NewElement( pszElemName);
-		sprintf( buff, "%ld", ivalue );
+		sprintf( buff, "%zu", ivalue );
 		pelem->SetText( buff);
 		pcontainer->InsertEndChild( pelem);
 	}

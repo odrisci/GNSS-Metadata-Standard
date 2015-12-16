@@ -82,18 +82,20 @@ void ChunkInterpreter<chunk_t, sample_base_t>::SetSourceEndianness( const GnssMe
    mSourceEndiannessIsDifferent = false;
 
    //no need to swap char arrays
-   if( srcEndianness == 1 )
+   if( sizeof( chunk_t ) == 1 )
       return;
 
    //no need to swap if the source is undefined
-   if( sizeof( chunk_t ) == GnssMetadata::Chunk::Undefined )
+   if( srcEndianness == GnssMetadata::Chunk::Undefined )
       return;
    
    //check my own endianness
     uint16_t number = 0x1;
     uint8_t *numPtr = (uint8_t*)&number;
     GnssMetadata::Chunk::WordEndian myEndianness = ( (numPtr[0] == 1) ? GnssMetadata::Chunk::Little : GnssMetadata::Chunk::Big );
-
+   
+    //printf("I am %s endian.\n",(myEndianness==GnssMetadata::Chunk::Little?"Little":"Big"));
+   
     mSourceEndiannessIsDifferent = ( myEndianness != srcEndianness );
 };
 
@@ -101,7 +103,7 @@ template<typename chunk_t,typename sample_base_t>
 void ChunkInterpreter<chunk_t, sample_base_t>::ChangeCunkEndianness( )
 {
    
-   printf("Warning: `ChunkInterpreter::ChangeCunkEndianness( )' not yet tested!\n");
+   //printf("Warning: `ChunkInterpreter::ChangeCunkEndianness( )' not yet tested!\n");
    
    //it seems some compilers don't like dependent definitions of iterators...
    typedef typename std::vector<chunk_t>::iterator iterator;

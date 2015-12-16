@@ -149,19 +149,19 @@ void StreamTranslator::OnWrite( const Object * pObject, pcstr pszName, Context &
 
 		//Write ratefactor
 		pelem = elem.GetDocument()->NewElement( "ratefactor");
-		sprintf( buff, "%ld", pstream->RateFactor() );
+		sprintf( buff, "%zu", pstream->RateFactor() );
 		pelem->SetText( buff );
 		pelemc->InsertEndChild( pelem);
 
 		//Write quantization
 		pelem = elem.GetDocument()->NewElement( "quantization");
-		sprintf( buff, "%ld", pstream->Quantization() );
+		sprintf( buff, "%zu", pstream->Quantization() );
 		pelem->SetText( buff );
 		pelemc->InsertEndChild( pelem);
 
 		//Write packedbits
 		pelem = elem.GetDocument()->NewElement( "packedbits");
-		sprintf( buff, "%ld", pstream->Packedbits() );
+		sprintf( buff, "%zu", pstream->Packedbits() );
 		pelem->SetText( buff );
 		pelemc->InsertEndChild( pelem);
 

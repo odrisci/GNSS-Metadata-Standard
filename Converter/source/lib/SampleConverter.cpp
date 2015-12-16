@@ -67,6 +67,17 @@ void SampleConverter::Convert(const char* fileName, const uint32_t bytesToProces
       return;
    }
 
+   //
+   //
+   // So we have a little work to do here, such that the LaneInterpreter looks in the correct file
+   // Steps to take:
+   //     - Upon the Open() call, we should assign an input file to the LaneInterpreter
+   //     - maybe it can actually be opened there too, as an extra check
+   //     - when we get here, we can simply pull out the ifstream& from LaneInterpreter* 
+   //     - and, of course, iterate over all of the LaneInterpreters...
+   //
+
+
 
    //open the file and read one chunk at a time, later we can sort out 
    //buffering this data

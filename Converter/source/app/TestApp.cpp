@@ -87,12 +87,12 @@ int main(int argc, char* argv[])
 	try
 	{
 		// process JRC data
-		std::cout << "JRC data case\n";
-		std::cout << "-------------\n";
-		chdir( "JRC" );
-		res = processJrcData( );
-		std::cout << "Result: " << (res==0?"ok":"failed") << "\n\n";
-		chdir( ".." );
+		//std::cout << "JRC data case\n";
+		//std::cout << "-------------\n";
+		//chdir( "JRC" );
+		//res = processJrcData( );
+		//std::cout << "Result: " << (res==0?"ok":"failed") << "\n\n";
+		//chdir( ".." );
 
 		// process IFEN data
 		std::cout << "IFEN data case\n";

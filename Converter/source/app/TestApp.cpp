@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdint.h>
+#include <direct.h>
+#include <iostream>
 
 #include <GnssMetadata/Metadata.h>
 #include <GnssMetadata/Xml/XmlProcessor.h>
@@ -13,13 +15,15 @@
 //
 #include "EndianFunctions.h"
 
-int main(int argc, char* argv[])
+
+// process triple frequency data from JRC
+int processJrcData( void )
 {
- 
+	
    GnssMetadata::Metadata md;
    GnssMetadata::XmlProcessor xproc;
 
-   if( !xproc.Load( "../../../data/150408_125245_UTC.xml", false, md) )
+   if( !xproc.Load( "150408_125245_UTC.xml", false, md) )
    {
       printf("Could not load metadata. Terminating.\n");
       return -1;
@@ -40,13 +44,77 @@ int main(int argc, char* argv[])
    spcv.Open<int8_t>( md );
 
    //perform the conversion
-   spcv.Convert( "../../../data/150408_125245_UTC.dat", 1024*1024 );
+   spcv.Convert( "150408_125245_UTC.dat", 1024*1024 );
 
    //close the converter
    spcv.Close();
 
+   return 0;
+}
 
 
-	return 0;
+
+// process dual frequency data from IFEN
+int processIfenData( void )
+{
+
+   GnssMetadata::Metadata md;
+   GnssMetadata::XmlProcessor xproc;
+
+   if( !xproc.Load( "RoofTop.setx", false, md) )
+   {
+      printf("Could not load metadata. Terminating.\n");
+      return -1;
+   }
+   
+   SampleConverter spcv;
+
+   spcv.Open<int8_t>( md );
+
+   //perform the conversion 
+   spcv.Convert( "RoofTop_FE0_Band0.stream", 1024*1024 ); // need to include second stream here
+
+   //close the converter
+   spcv.Close();
+
+   return 0;
+}
+
+int main(int argc, char* argv[])
+{
+	int res;
+	
+	try
+	{
+		// process JRC data
+		std::cout << "JRC data case\n";
+		std::cout << "-------------\n";
+		chdir( "JRC" );
+		res = processJrcData( );
+		std::cout << "Result: " << (res==0?"ok":"failed") << "\n\n";
+		chdir( ".." );
+
+		// process IFEN data
+		std::cout << "IFEN data case\n";
+		std::cout << "--------------\n";
+		chdir( "IFEN" );
+		res = processIfenData( );
+		std::cout << "Result: " << (res==0?"ok":"failed") << "\n\n";
+		chdir( ".." );
+
+	}
+	catch ( GnssMetadata::ApiException &e)
+	{
+		std::cout << "caught API exception: " << e.what( ) << "\n";
+	} 
+	catch (std::exception &e)
+	{
+		std::cout << "caught exception: " << e.what( ) << "\n";
+	}
+	catch( ... )
+	{
+		std::cout << "unknown exception\n";
+	}
+		return 0;
 }
 

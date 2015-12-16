@@ -71,7 +71,7 @@ bool FileTranslator::OnRead( Context & ctxt, const XMLElement & elem, AccessorAd
 	else
 	{
 		//Parse url [1]
-		file.Url().Value( ReadFirstElement("url", elem, false, ""));
+		file.Url().Value( ReadFirstElement("url", elem, true, ""));
 
 		//Parse timestamp [1]
 		pchild = elem.FirstChildElement("timestamp");

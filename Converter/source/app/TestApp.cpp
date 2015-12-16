@@ -1,7 +1,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdint.h>
-#include <direct.h>
+
+#ifdef _WIN32
+   #include <direct.h>
+#elif defined __linux__
+   #include <sys/stat.h>
+   #include <unistd.h>
+#endif
+
 #include <iostream>
 
 #include <GnssMetadata/Metadata.h>

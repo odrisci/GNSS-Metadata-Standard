@@ -54,7 +54,7 @@ cnv_lib: $(CNV_LIBDIR)libcnv.a
 	$(AR) $(ARFLAGS) $(CNV_LIBDIR)libcnv.a $(CNV_OBJECTS) $(CNVX_OBJECTS)
 
 $(CNV_LIBDIR)libcnv.a: $(CNV_SOURCES)  
-	$(CXX) $(CCFLAGS) $(API_INCS) -I$(CNV_INCLUDEDIR) $(CNV_SOURCES)
+	$(CXX) $(CCFLAGS) -I$(API_INCS) -I$(CNV_INCLUDEDIR) $(CNV_SOURCES)
 	mv *.o $(CNV_LIBDIR)
 
 # GnssMetadata lib
@@ -62,15 +62,13 @@ api_lib:
 	cd ../../../API/ide/make/ && $(MAKE) lib
 
 # Test Application
-# cnv_lib api_lib
-$(APP): 
+$(APP): cnv_lib api_lib
 	$(CXX) -I$(API_INCS) -I../../source/inc/ -I$(CNV_INCLUDEDIR) $(APP_SOURCES) -L$(CNV_LIBDIR) -lcnv -L$(API_LIBDIR) -lapi -L$(XML_LIBDIR) -lxml -o $(INSTALLDIR)$(APP)
 
 clean:
 	rm  -f $(CNV_LIBDIR)*.o
 	rm  -f $(CNV_LIBDIR)*.a
 	rm  -f $(INSTALLDIR)$(APP)
-
 
 
 

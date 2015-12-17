@@ -22,7 +22,7 @@
                         <packedbits>8</packedbits>
                         <alignment>Undefined</alignment>
                         <format>IF</format>
-                        <encoding>INT</encoding>
+                        <encoding>SM</encoding>
                         <band id="RfBand0_Band0">
                             <centerfreq format="MHz">1.5754200000000001e+003</centerfreq>
                             <translatedfreq format="MHz">5.4999984741210897e+000</translatedfreq>
@@ -55,7 +55,7 @@
                         <packedbits>8</packedbits>
                         <alignment>Undefined</alignment>
                         <format>IF</format>
-                        <encoding>INT</encoding>
+                        <encoding>SM</encoding>
                         <band id="RfBand1_Band1">
                             <centerfreq format="MHz">1.2275999999999999e+003</centerfreq>
                             <translatedfreq format="MHz">5.6799992370605494e+000</translatedfreq>

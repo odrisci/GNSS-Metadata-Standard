@@ -50,6 +50,7 @@
                 <wordshift>Left</wordshift>
                 <lump>
                     <stream id="L2">
+						<ratefactor>4</ratefactor>
                         <quantization>2</quantization>
                         <packedbits>8</packedbits>
                         <alignment>Undefined</alignment>

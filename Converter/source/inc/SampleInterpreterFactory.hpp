@@ -27,10 +27,10 @@ SampleInterpreterFactory<chunk_t,sample_base_t>::SampleInterpreterFactory()
 {
    
    // "introduce" the EncoderFunctions to the Factory
-   mEncoderFunctionMap[ "SIGN" ] = &SampleEncoderFunctions::Sign;
-   mEncoderFunctionMap[ "SM" ]   = &SampleEncoderFunctions::SignMagnitude;
-   mEncoderFunctionMap[ "BIN" ]  = &SampleEncoderFunctions::OffsetBinary;
-   mEncoderFunctionMap[ "INT" ]  = &SampleEncoderFunctions::TwosCompliment;
+   mEncoderFunctionMap[ "SIGN" ] = (encFuncPtr_t)&SampleEncoderFunctions::Sign;
+   mEncoderFunctionMap[ "SM" ]   = (encFuncPtr_t)&SampleEncoderFunctions::SignMagnitude;
+   mEncoderFunctionMap[ "BIN" ]  = (encFuncPtr_t)&SampleEncoderFunctions::OffsetBinary;
+   mEncoderFunctionMap[ "INT" ]  = (encFuncPtr_t)&SampleEncoderFunctions::TwosCompliment;
 
    // "introduce" the FormatFunctions to the Factory
    mFormatFunctionMap[ GnssMetadata::Stream::IF   ] = &SampleFormatFunctions::IF<chunk_t,sample_base_t>;

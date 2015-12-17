@@ -21,8 +21,9 @@
 #include "EndianFunctions.h"
 
 template<typename chunk_t,typename sample_base_t>
-ChunkInterpreter<chunk_t, sample_base_t>::ChunkInterpreter( const uint32_t countWords ) : 
-mSourceEndiannessIsDifferent(false)
+ChunkInterpreter<chunk_t, sample_base_t>::ChunkInterpreter( const uint32_t countWords, const bool rightWordShift ) : 
+mSourceEndiannessIsDifferent(false),
+mRightWordShift(rightWordShift)
 {
    // make sure that there is sufficient space for the chunk data 
    // no checks made later!
@@ -63,7 +64,7 @@ void ChunkInterpreter<chunk_t, sample_base_t>::AddSampleInterpreter( SampleInter
 template<typename chunk_t,typename sample_base_t>
 void* ChunkInterpreter<chunk_t, sample_base_t>::GetChunk()
 {
-   // we should be sure that enough space is allocated, as we define 
+   // we should be sure that enough space is allocated, but as we define 
    // the ChunkSize at construction time, shouldn't change...
    return &( mDataChunk[0] ); 
 };
@@ -122,11 +123,22 @@ void ChunkInterpreter<chunk_t, sample_base_t>::Interpret( )
    if( mSourceEndiannessIsDifferent )
        ChangeCunkEndianness();
    
-
    //go through the ordered grouping of interpreters, and let each one extract some samples, and push them to the associated sampleSink.
-   for( std::deque<SampleInterpreter*>::iterator it=mSampleInterpreters.begin(); it!=mSampleInterpreters.end(); ++it )
+   if( mRightWordShift )
    {
-      (*it)->Interpret( &mDataChunk[0] );
+      //left to right
+      for( std::deque<SampleInterpreter*>::iterator it=mSampleInterpreters.begin(); it!=mSampleInterpreters.end(); ++it )
+      {
+         (*it)->Interpret( &mDataChunk[0] );
+      }
+   }
+   else
+   {
+      //right to left
+      for( std::deque<SampleInterpreter*>::reverse_iterator it=mSampleInterpreters.rbegin(); it!=mSampleInterpreters.rend(); ++it )
+      {
+         (*it)->Interpret( &mDataChunk[0] );
+      }
    }
 
 };

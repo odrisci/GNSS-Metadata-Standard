@@ -47,7 +47,7 @@
                 <countwords>1</countwords>
                 <endian>Little</endian>
                 <padding>Tail</padding>
-                <wordshift>Left</wordshift>
+                <wordshift>Right</wordshift>
 				<lump>
 									
 					<stream id="L1">

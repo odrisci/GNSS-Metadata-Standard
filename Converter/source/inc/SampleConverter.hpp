@@ -143,13 +143,13 @@ template<typename chunk_t, typename sample_base_t>
 bool SampleConverter::CreateChunkInterpreter( GnssMetadata::Chunk* chunk, Chunk** chunkInterp )
 {
    
+   bool rightShiftWord = ( chunk->Shift() == GnssMetadata::Chunk::Right );
+
    //create the chunk interpreter and keep a local type-specific reference here for now
-   ChunkInterpreter<chunk_t,sample_base_t>* chunkIntrp = new ChunkInterpreter<chunk_t,sample_base_t>( static_cast<uint32_t>(chunk->CountWords()) );
+   ChunkInterpreter<chunk_t,sample_base_t>* chunkIntrp = new ChunkInterpreter<chunk_t,sample_base_t>( static_cast<uint32_t>(chunk->CountWords()), rightShiftWord );
    // assign the address
    *chunkInterp = chunkIntrp;
    
-   
-
    uint32_t totalOccupiedBitsInChunk = 0;
    
    for(GnssMetadata::LumpList::iterator lpIt = chunk->Lumps().begin(); lpIt != chunk->Lumps().end(); ++lpIt)
@@ -179,6 +179,7 @@ bool SampleConverter::CreateChunkInterpreter( GnssMetadata::Chunk* chunk, Chunk*
             chunkIntrp->mSampleInterpFactory.Create( sampleSink, smIt->Format(), smIt->Encoding(), smIt->Quantization(), splIntrp );
             // and add it to the ordered list
             streamSplIntrps.push_back(splIntrp);
+            
          }
          
          if( numPaddingBits > 0 && ( smIt->Alignment() != GnssMetadata::Stream::Undefined) )
@@ -194,8 +195,9 @@ bool SampleConverter::CreateChunkInterpreter( GnssMetadata::Chunk* chunk, Chunk*
          
          //now add all of the interpreters for this stream to the chunk-interpreter
          for( std::deque<SampleInterpreter*>::iterator it = streamSplIntrps.begin(); it != streamSplIntrps.end(); ++it )
-            chunkIntrp->AddSampleInterpreter( (*it) );
-         
+         {
+            chunkIntrp->AddSampleInterpreter( (*it));
+         }
          //keep a count of the total bit-occupation of the chunk
          totalOccupiedBitsInChunk += static_cast<uint32_t>( smIt->Packedbits() );
 

@@ -19,5 +19,5 @@ plot( sampt, samp );
 
 for i=1:4:12
     sampt(i:i+3)'
-    flip(samp(i:i+3)')
+    samp(i:i+3)'
 end

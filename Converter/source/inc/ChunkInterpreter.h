@@ -55,12 +55,13 @@ protected:
 	std::deque<SampleInterpreter*> mSampleInterpreters;
    std::vector<chunk_t>           mDataChunk;
    bool                           mSourceEndiannessIsDifferent;
-	
+   bool                           mRightWordShift;
+
 protected:
    void ChangeCunkEndianness( );
 
 public:	
-   ChunkInterpreter( const uint32_t countWords );
+   ChunkInterpreter( const uint32_t countWords, const bool rightWordShift = false );
 	virtual  ~ChunkInterpreter();
 	void     AddSampleInterpreter( SampleInterpreter* splIntrp, const bool front = false );
    void     SetSourceEndianness( const GnssMetadata::Chunk::WordEndian& srcEndianness );

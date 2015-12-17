@@ -34,9 +34,50 @@
             </chunk>
         </block>
     </lane>
+    <lane id="Lane1_Band1">
+        <system id="IfenRecordingSystem">
+            <freqbase format="MHz">2.0480000000000000e+001</freqbase>
+            <equipment>IFEN frontend type: NavPort-4</equipment>
+            <types>Processor</types>
+        </system>
+        <block>
+            <cycles>0</cycles>
+            <chunk>
+                <sizeword>1</sizeword>
+                <countwords>1</countwords>
+                <endian>Big</endian>
+                <padding>None</padding>
+                <wordshift>Left</wordshift>
+                <lump>
+                    <stream id="L2">
+                        <quantization>2</quantization>
+                        <packedbits>8</packedbits>
+                        <alignment>Undefined</alignment>
+                        <format>IF</format>
+                        <encoding>SM</encoding>
+                        <band id="RfBand1_Band1">
+                            <centerfreq format="MHz">1.2275999999999999e+003</centerfreq>
+                            <translatedfreq format="MHz">5.6799992370605494e+000</translatedfreq>
+                            <delaybias format="sec">0.0000000000000000e+000</delaybias>
+                            <bandwidth format="Hz">0.0000000000000000e+000</bandwidth>
+                        </band>
+                    </stream>
+                </lump>
+            </chunk>
+        </block>
+    </lane>
     <file id="RoofTop_FE0_Band0.stream">
         <url>RoofTop_FE0_Band0.stream</url>
         <timestamp>2013-11-28T09:10:9.451949954Z</timestamp>
         <lane id="Lane0_Band0"/>
     </file>
+    <file id="RoofTop_FE0_Band1.stream">
+        <url>RoofTop_FE0_Band1.stream</url>
+        <timestamp>2013-11-28T09:10:9.451949954Z</timestamp>
+        <lane id="Lane1_Band1"/>
+    </file>
+    <fileset id="MyMultiFileRecording">
+        <file>RoofTop_FE0_Band0.stream</file>
+        <file>RoofTop_FE0_Band1.stream</file>
+    </fileset>
 </metadata>

@@ -64,7 +64,6 @@ int processJrcData( void )
 // process dual frequency data from IFEN
 int processIfenData( void )
 {
-
    GnssMetadata::Metadata md;
    GnssMetadata::XmlProcessor xproc;
 
@@ -87,6 +86,33 @@ int processIfenData( void )
    return 0;
 }
 
+
+// process triple frequency data from Fraunhofer
+int processFhGData( void )
+{
+   GnssMetadata::Metadata md;
+   GnssMetadata::XmlProcessor xproc;
+
+   if( !xproc.Load( "L125_III1b_15s.usbx", false, md) )
+   {
+      printf("Could not load metadata. Terminating.\n");
+      return -1;
+   }
+   
+   SampleConverter spcv;
+
+   spcv.Open<int8_t>( md );
+
+   //perform the conversion 
+   spcv.Convert( 1024*1024 ); 
+
+   //close the converter
+   spcv.Close();
+
+   return 0;
+}
+
+
 int main(int argc, char* argv[])
 {
 	int res;
@@ -106,6 +132,14 @@ int main(int argc, char* argv[])
 		std::cout << "--------------\n";
 		chdir( "IFEN" );
 		res = processIfenData( );
+		std::cout << "Result: " << (res==0?"ok":"failed") << "\n\n";
+		chdir( ".." );
+
+		// process Fraunhofer data
+		std::cout << "FHG data case\n";
+		std::cout << "-------------\n";
+		chdir( "FHG" );
+		res = processFhGData( );
 		std::cout << "Result: " << (res==0?"ok":"failed") << "\n\n";
 		chdir( ".." );
 

@@ -25,11 +25,14 @@
 //Grab os time type.
 #if defined(_WIN32) || defined(_WIN64)
 	#include <time.h>
+
+#ifdef _CRT_NO_TIME_T
 	struct timespec 
 	{
 		time_t tv_sec;
 		long tv_nsec;
 	};
+#endif
 	
 	#define GMTIME( ptm, pt) gmtime_s(ptm, pt)	
 #else

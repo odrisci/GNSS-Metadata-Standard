@@ -50,6 +50,5 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/API/source/inc/GnssMetadata/Xml
 )
 
-add_library(api_nox ${api_sources} )
-add_library(api )
-target_link_libraries(api apix api_nox) 
+add_library(api_nox OBJECT ${api_sources} )
+add_library(api $<TARGET_OBJECTS:apix> $<TARGET_OBJECTS:api_nox> )

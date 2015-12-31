@@ -51,5 +51,5 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/API/source/inc/tinyxml2
 )
 
-add_library(apix ${apix_sources} )
+add_library(apix OBJECT ${apix_sources} )
 

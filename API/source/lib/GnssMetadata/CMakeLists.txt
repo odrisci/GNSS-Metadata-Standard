@@ -18,8 +18,6 @@
 #  along with Metadata API.  If not, see <http://www.gnu.org/licenses/>.
 # 
 
-add_subdirectory(Xml)
-
 set( api_sources 
     AnyUri.cpp
     AttributedObject.cpp
@@ -42,13 +40,34 @@ set( api_sources
     Source.cpp
     Stream.cpp
     System.cpp
+    Xml/AnyUriTranslator.cpp
+    Xml/BandTranslator.cpp
+    Xml/BlockTranslator.cpp
+    Xml/ChunkTranslator.cpp
+    Xml/ClusterTranslator.cpp
+    Xml/DurationTranslator.cpp
+    Xml/FileSetTranslator.cpp
+    Xml/FileTranslator.cpp
+    Xml/FrequencyTranslator.cpp
+    Xml/LaneTranslator.cpp
+    Xml/LumpTranslator.cpp
+    Xml/MetadataTranslator.cpp
+    Xml/OscillatorTranslator.cpp
+    Xml/PositionTranslator.cpp
+    Xml/RfConfigTranslator.cpp
+    Xml/SessionTranslator.cpp
+    Xml/SourceTranslator.cpp
+    Xml/StreamTranslator.cpp
+    Xml/SystemTranslator.cpp
+    Xml/Translator.cpp
+    Xml/XmlProcessor.cpp
 )
 	
 include_directories(
     ${CMAKE_SOURCE_DIR}/API/source/inc
     ${CMAKE_SOURCE_DIR}/API/source/inc/GnssMetadata
     ${CMAKE_SOURCE_DIR}/API/source/inc/GnssMetadata/Xml
+    ${CMAKE_SOURCE_DIR}/API/source/inc/tinyxml2
 )
 
-add_library(api_nox OBJECT ${api_sources} )
-add_library(api $<TARGET_OBJECTS:apix> $<TARGET_OBJECTS:api_nox> )
+add_library(api ${api_sources})

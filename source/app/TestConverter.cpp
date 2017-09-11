@@ -236,6 +236,22 @@ int main(int argc, char* argv[])
                   << (res[2]==0?"ok ":"failed ")
                   << "\n\n";
         change_dir( ".." );
+        
+        // Process CODC data.
+        printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+        std::cout << "CODC data case\n";
+        printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+        change_dir( "CODC" );
+        xmlFileName = "20170911_1118Z.sdrx";
+        res[0] = Convert<int16_t>(    xmlFileName );
+        res[1] = ComputeStatistics<int16_t>( xmlFileName );
+        res[2] = FrontEnd<int16_t>(   xmlFileName );
+        std::cout << "Result: "
+                  << (res[0]==0?"ok ":"failed ")
+                  << (res[1]==0?"ok ":"failed ")
+                  << (res[2]==0?"ok ":"failed ")
+                  << "\n\n";
+        change_dir( ".." );
 
 	}
 	catch ( GnssMetadata::ApiException &e)

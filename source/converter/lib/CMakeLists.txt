@@ -73,4 +73,5 @@ include_directories(
 )
 
 add_library(cnv ${cnv_lib_sources} )
+target_include_directories(cnv PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../inc )
 

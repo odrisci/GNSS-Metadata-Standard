@@ -34,6 +34,8 @@ project(GNSS_METADATA_STANDARD CXX C)
 
 file(RELATIVE_PATH RELATIVE_CMAKE_CALL ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
 
+#make sure our local CMake Modules path comes first
+list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_SOURCE_DIR}/cmake/Modules)
 
 ################################################################################
 # Checkout cmake version
@@ -63,10 +65,10 @@ endif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
 # Enable C++11 support in GCC
 # For "-std=c++0x"  GCC's support for C++11 see http://gcc.gnu.org/projects/cxx0x.html
 if(CMAKE_COMPILER_IS_GNUCXX AND NOT WIN32)
-     set(MY_CXX_FLAGS "${MY_CXX_FLAGS} -std=c++11 -Wall -Wextra -pedantic")  #Add warning flags: For "-Wall -pedantic" see http://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html
+    set(MY_CXX_FLAGS "${MY_CXX_FLAGS} -std=c++11 -fPIC -Wall -Wextra -pedantic")  #Add warning flags: For "-Wall -pedantic" see http://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html
 endif(CMAKE_COMPILER_IS_GNUCXX AND NOT WIN32)
 if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-    set(MY_CXX_FLAGS "${MY_CXX_FLAGS} -std=c++11 -Wno-c++11-narrowing -Wall -pedantic")
+    set(MY_CXX_FLAGS "${MY_CXX_FLAGS} -std=c++11 -fPIC -Wno-c++11-narrowing -Wall -pedantic")
     if(CMAKE_BUILD_TYPE MATCHES "Release")
         set(MY_CXX_FLAGS "${MY_CXX_FLAGS} -Wno-unused-private-field")
     endif(CMAKE_BUILD_TYPE MATCHES "Release")
@@ -79,12 +81,20 @@ endif()
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${MY_CXX_FLAGS}")
 
+########################################################################
+# Set Options
+########################################################################
+OPTION(ENABLE_PYTHON "Enable building of python bindings" OFF )
 
 ########################################################################
 # Add subdirectories (in order of deps)
 ########################################################################
 SET( BUILD_TEST_EXECUTABLES TRUE )
 add_subdirectory(source)
+
+if( ENABLE_PYTHON )
+    add_subdirectory(python)
+endif()
 
 message( ${CMAKE_CXX_FLAGS} )
 

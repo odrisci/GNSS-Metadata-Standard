@@ -114,14 +114,14 @@ set( api_sources
     Xml/XmlProcessor.cpp
 )
 	
-include_directories(
+
+add_library(api ${api_sources})
+target_include_directories(api PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/../../inc
     ${CMAKE_CURRENT_SOURCE_DIR}/../../inc/GnssMetadata
     ${CMAKE_CURRENT_SOURCE_DIR}/../../inc/GnssMetadata/Xml
     ${CMAKE_CURRENT_SOURCE_DIR}/../../inc/tinyxml2
-)
-
-add_library(api ${api_sources})
+    )
 
 
 
